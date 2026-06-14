@@ -1,11 +1,11 @@
-# MDI GitHub Continuous Integration Action to compile 
+# GitHub Continuous Integration Action to compile 
 # a Rust binary and attach it as a versioned release asset
 
 name: compile Rust
 on:
   # trigger the action on any level of tag release (e.g., v1.2.3)
   push:
-    tags: [ 'v[0-9]+.*' ] # MDI repos expect v.#.#.# as semantic versions
+    tags: [ 'v[0-9]+.*' ] # repos expect v.#.#.# as semantic versions
 
 permissions:
   contents: write
@@ -16,7 +16,7 @@ jobs:
 
     env:
       BINARY_NAME: BINARY_NAME # change this line to compile shared/crates/<BINARY_NAME>
-                               # the parent MDI repository must hold this file in .github/workflows
+                               # the parent repository must hold this file in .github/workflows
     steps:
       # checkout this tool suite
       - uses: actions/checkout@v6

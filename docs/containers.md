@@ -125,7 +125,7 @@ Thus, containers will change much less frequently than your pipeline actions.
 Containers only need to change when a program dependency must be added or updated.
 
 As described in more detail 
-[here](https://midataint.github.io/mdi-suite-template/docs/suite_versions.html),
+[here](https://RustyDataInt.github.io/rudi-suite-template/docs/suite_versions.html),
 the MDI convention is that any change to the required working environment
 of your code is reflected in a change to either the major or minor version,
 but that patch version changes never require a new program dependency and
@@ -139,7 +139,7 @@ building via Continuous Integration (CI) with
 [GitHub Actions](https://github.com/features/actions).
 
 Specifically, the
-[MDI Tool Suite Template](https://midataint.github.io/mdi-suite-template/overview)
+[MDI Tool Suite Template](https://RustyDataInt.github.io/rudi-suite-template/overview)
 you should use to create your new tool suite provides templates for 
 CI workflows. Copy them as needed from the `templates` to the `.github/workflows`
 folder of your tools suite, change just one or two variables as documented within, and

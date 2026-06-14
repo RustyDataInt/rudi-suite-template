@@ -10,7 +10,7 @@ code to be compiled into __TOOL_SUITE_NAME__ binary executables,
 where Rust is the recommended language for developing new
 HPC data analysis tools that are extremely fast and memory safe.
 
-As described below, MDI framework utilities make it easy
+As described below, RuDI framework utilities make it easy
 to compile, test, and distribute your Rust binaries.
 
 If you are new to Rust, a great place to get started is the outstanding
@@ -28,26 +28,26 @@ register them in the dispatcher.
 ### Compiling Rust binaries during development
 
 Developers will need to compile Rust code using the support features 
-provided by the mdi-pipelines-framework. The following steps create
+provided by the rudi-pipelines-framework. The following steps create
 a Conda environment that provides the Rust cargo compiler and
 then compile code, with options to load system C compiler support
 if needed by your crates.
 
 ```bash
 # must compile from within the crate directory
-cd /path/to/__TOOL_SUITE_NAME__/mdi/suites/developer-forks/__TOOL_SUITE_NAME__/shared/crates/xxx_tools 
-mdi analyze rust --help
-mdi analyze rust --create  1.92 # create a versioned Rust development environment
-mdi analyze rust --compile 1.92 # compile xxx_tools using the created environment
-mdi analyze rust --gcc "module load gcc/15.1.0" --compile 1.92 # if a command is required to make C compilers available 
+cd /path/to/__TOOL_SUITE_NAME__/rudi/suites/developer-forks/__TOOL_SUITE_NAME__/shared/crates/xxx_tools 
+rudi analyze rust --help
+rudi analyze rust --create  1.92 # create a versioned Rust development environment
+rudi analyze rust --compile 1.92 # compile xxx_tools using the created environment
+rudi analyze rust --gcc "module load gcc/15.1.0" --compile 1.92 # if a command is required to make C compilers available 
 ```
 
 It is also possible to compile the Rust code from first principles
 if all prerequisites are met. The compiled executable binary must be 
-copied into file `mdi/bin/__TOOL_SUITE_NAME__/dev/xxx_tools`.
+copied into file `rudi/bin/__TOOL_SUITE_NAME__/dev/xxx_tools`.
 
 Use of the developer binary in the `dev` folder is activated using
-the `mdi -d` developer option on all pipeline calls.
+the `rudi -d` developer option on all pipeline calls.
 
 ### Distributing compiled binaries via GitHub Actions
 

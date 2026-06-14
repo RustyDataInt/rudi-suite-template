@@ -34,7 +34,7 @@ pages with text, mostly via markdown rendered in R with
 ### Recurring code elements
 
 **classes** are R Shiny S3 classes that define reusable data objects
-for use by developers writing MDI code. Their purpose
+for use by developers writing app code. Their purpose
 is to encapsulate methods and other common logic. Classes are
 never used to access or create the UI.
 

@@ -1,6 +1,6 @@
-# exclude nested, i.e., suite-centric MDI installations
-# within this suite's git repository, or suite-centric containers
-/mdi/
+# exclude nested, i.e., single-suite installations
+# within this suite's git repository, or single-suite containers
+/rudi/
 /containers/
 
 # exclude Rust build artifacts

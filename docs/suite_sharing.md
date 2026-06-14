@@ -27,7 +27,7 @@ primary unit of installation and use.
 
 In a multi-suite installation, the user instead first clones the MDI installation utility:
 
-- [mdi git repository](https://github.com/MiDataInt/mdi) /
+- [mdi git repository](https://github.com/RustyDataInt/mdi) /
   [documentation](/mdi)
 
 and executes its _install.sh_ script to set up an empty MDI installation. 
@@ -66,8 +66,8 @@ _~/gitCredentials.R_ (or, alternatively, _mdi/gitCredentials.R_):
 ```r
 # ~/gitCredentials.R
 gitCredentials <- list(
-    USER_NAME  = "First Name",
-    USER_EMAIL = "namef@umich.edu",
+    USER_NAME  = "FirstName LastName",
+    USER_EMAIL = "name@umich.edu",
     GIT_USER   = "xxx",
     GITHUB_PAT = "xxx"
 )
@@ -77,14 +77,14 @@ gitCredentials <- list(
 
 For maximum visibility within the MDI, you may list your tool suite
 in the registry on the 
-[main MDI documentation page](https://midataint.github.io/docs/registry/00_index/). 
+[main MDI documentation page](https://RustyDataInt.github.io/docs/registry/00_index/). 
 
 Only public suites that offer substantive, purposeful, non-malicious tools 
 will be listed in the registry. All code used by your tools must be open source. 
 Otherwise, we place no restrictions on the kind of suites you list. 
 
 The steps for listing your suite are:
-- fork the docs repo: <https://github.com/MiDataInt/midataint.github.io>
+- fork the docs repo: <https://github.com/RustyDataInt/RustyDataInt.github.io>
 - make a copy of file _/_data/registry/_template.yml_ and edit as needed
 - make a pull request to the parent repo
 

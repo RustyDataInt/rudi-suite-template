@@ -11,7 +11,7 @@ The suite template carries the configuration files needed to easily launch a doc
 web site for your new tools suite using a permanent, customized fork 
 of the open source Jekyll theme 
 [Just the Docs](https://github.com/just-the-docs/just-the-docs), called
-[just-the-docs-mdi](https://github.com/MiDataInt/just-the-docs-mdi).
+[just-the-docs-rudi](https://github.com/RustyDataInt/just-the-docs-rudi).
 
 ### Configure your suite's basic information
 
@@ -21,7 +21,6 @@ to find specific lines you need to edit to match your needs:
 - _config.yml
 - overview.md
 - LICENSE (adjust the license type, year, and licensee as needed)
-- aws-mdi.md (specify the resources needed for a public server, if relevant)
 - README.md (delete these developer instructions, if desired)
   
 ### Activate your documentation web page on github.io
@@ -58,7 +57,7 @@ at the top of each markdown file to create the nested
 menu items typical of MDI documentation sites. 
 Examples here will get you going:
 
-<https://github.com/MiDataInt/mdi-documentation-template/tree/main/_docs>
+<https://github.com/RustyDataInt/mdi-documentation-template/tree/main/_docs>
 
 ### Additional folders for helping users with options and templates
 

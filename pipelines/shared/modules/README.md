@@ -1,7 +1,7 @@
 ---
 title: Code Modules
 parent: Pipeline Shared Files
-grand_parent: Stage 1 Pipelines
+grand_parent: Pipelines
 has_children: false
 nav_order: 20
 ---
@@ -97,7 +97,7 @@ to provide easy access to module files.
 ### External modules
 
 A pipeline may also use a module of either type from a different pipelines suite, 
-which must also be installed into the working MDI directory by setting 
+which must also be installed into the working RuDI directory by setting 
 `suite_dependencies` in the calling suite's _\_config.yml_ file.
 
 To use an external action module in pipeline.yml, the syntax is:

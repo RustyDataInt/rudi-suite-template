@@ -15,12 +15,12 @@ inline in the calling shell or by submitting jobs to your server job scheduler;
 the latter is recommended for most use cases. Thus, our most common usage pattern is:
 
 ```sh
-mdi inspect myJob.yml          # check the formatting of your job file
-mdi mkdir myJob.yml            # create any missing output directories
-mdi submit --dry-run myJob.yml # test the job file to see what will happen
-mdi submit myJob.yml           # submit the job to Slurm or your scheduler
-mdi myJob.yml status           # show the state of all submitted jobs
-mdi myJob.yml top              # monitor a running job
-mdi myJob.yml report           # show a job log report
-mdi myJob.yml ls               # show the contents of a job's output diretory
+rudi inspect myJob.yml          # check the formatting of your job file
+rudi mkdir myJob.yml            # create any missing output directories
+rudi submit --dry-run myJob.yml # test the job file to see what will happen
+rudi submit myJob.yml           # submit the job to Slurm or your scheduler
+rudi myJob.yml status           # show the state of all submitted jobs
+rudi myJob.yml top              # monitor a running job
+rudi myJob.yml report           # show a job log report
+rudi myJob.yml ls               # show the contents of a job's output diretory
 ```

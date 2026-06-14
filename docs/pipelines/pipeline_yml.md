@@ -148,8 +148,8 @@ environment for all actions, which sometimes speeds development.
 
 ## Data package declaration
 
-Many MDI Stage 1 Pipelines are designed to create smaller data files suitable
-for loading into a Stage 2 App. Such files are zipped into a single 
+Many pipelines are designed to create smaller data files suitable
+for loading into an app. Such files are zipped into a single 
 data package file associated with one or more pipeline actions, as follows:
 
 ```yml

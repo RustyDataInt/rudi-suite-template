@@ -7,7 +7,7 @@ pipeline:
 #     suiteName: v0.0.0
 actions: 
     _global:   
-        environment: mdi-demo
+        environment: suite-demo
         condaFamilies:
             - base
             - r-4.1         
@@ -81,7 +81,7 @@ optionFamilies:
                 description: "this is an optional boolean (i.e, logical flag) option"
 package:
     do: # the pipeline action after which a data package should assembled
-        uploadType: _template # a signal to the Stage 2 framework regarding the package contents
+        uploadType: _template # a signal to the framework regarding the package contents
         files:
             directoryContents:
                 type: file-list

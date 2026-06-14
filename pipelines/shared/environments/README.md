@@ -1,7 +1,7 @@
 ---
 title: Conda Environments
 parent: Pipeline Shared Files
-grand_parent: Stage 1 Pipelines
+grand_parent: Pipelines
 has_children: false
 nav_order: 10
 ---
@@ -53,7 +53,7 @@ dependencies: ...
 
 ### Available conda families
 
-The following environment families are provided by the MDI suite template
+The following environment families are provided by the RuDI suite template
 as they are typical for many data analysis needs or support the 
 demo, i.e., _\_template_, pipeline.
 

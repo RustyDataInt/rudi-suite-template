@@ -14,14 +14,14 @@ pipeline:
 #     suiteName: v0.0.0 # use this version of a suite invoked as 'suite//module', etc. [latest]
 
 #--------------------------------------------------------------------
-# REQUIRED: pipeline-specific actions, called as 'mdi <pipelineName> <action> [options]', etc.
+# REQUIRED: pipeline-specific actions, called as 'rudi <pipelineName> <action> [options]', etc.
 # by convention, if there is only a single action it is called 'do'
 #--------------------------------------------------------------------
 actions: 
     # OPTIONAL: family lists in _global are prepended to every action
     # allows common options or creating one conda environment for all actions 
     _global:   
-        environment: mdi-demo # environment name; if omitted, uses an automated, sharable name
+        environment: suite-demo # environment name; if omitted, uses an automated, sharable name
         condaFamilies:
             - base
             - r-4.1   
@@ -110,11 +110,11 @@ optionFamilies:
                 description: "this is an optional boolean (i.e, logical flag) option"
     
 #--------------------------------------------------------------------
-# OPTIONAL: create an output package for loading into Stage2 App(s)
+# OPTIONAL: create an output package for loading into apps
 #--------------------------------------------------------------------
 package:
     do: # the pipeline action after which a data package should assembled
-        uploadType: _template # a signal to the Stage 2 framework regarding the package contents
+        uploadType: _template # a signal to the  framework regarding the package contents
         files:
             directoryContents:  # a contentFileType of any name you choose; 'manifestFile' has special meaning
                 type: file-list # additional information as to the file type

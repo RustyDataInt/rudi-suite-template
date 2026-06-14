@@ -1,4 +1,4 @@
-# MDI GitHub Continuous Integration Action to build 
+# GitHub Continuous Integration Action to build 
 # a suite-level Singularity/Apptainer apps container image
 # an push it to the GitHub Packages container registry
 
@@ -6,7 +6,7 @@ name: build apps container
 on:
   # trigger on the first tags of a major or minor release, but not patch releases (e.g., v1.2.0 but not v1.2.1)
   push:
-    tags: [ 'v[0-9]+.[0-9]+.0' ] # MDI repos expect v.#.#.# as semantic versions
+    tags: [ 'v[0-9]+.[0-9]+.0' ] # repos expect v.#.#.# as semantic versions
 
 permissions:
   contents: read
@@ -40,12 +40,12 @@ jobs:
       # uncomment these lines if the repo is private
       #   git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
       #   export APPTAINERENV_GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-      - name: Install MDI and build container image
+      - name: Install RuDI and build container image
         run: |
-          export SKIP_MDI_APPS_INSTALL=1
+          export SKIP_RUDI_APPS_INSTALL=1
           export FORCE_CONTAINER_BUILD=1
           export IS_GITHUB_ACTION=1
-          echo "::group::Installing runner MDI instance"
+          echo "::group::Installing runner RuDI instance"
           # git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
           ./install.sh --yes
           echo "::endgroup::"
@@ -64,7 +64,7 @@ jobs:
           CONTAINER_NAME=${LC_SUITE_NAME}-apps
           VERSION_TAG=${{ github.ref_name }}
           MAJOR_MINOR_VERSION=${VERSION_TAG%.*}
-          SIF_FILE=./mdi/containers/${LC_SUITE_NAME}/${CONTAINER_NAME}-${MAJOR_MINOR_VERSION}.sif
+          SIF_FILE=./rudi/containers/${LC_SUITE_NAME}/${CONTAINER_NAME}-${MAJOR_MINOR_VERSION}.sif
           URI=oras://ghcr.io/${LC_GITHUB_OWNER}/${CONTAINER_NAME}:${MAJOR_MINOR_VERSION}
           echo "SIF_FILE: "$SIF_FILE
           echo "ORAS URI: "$URI

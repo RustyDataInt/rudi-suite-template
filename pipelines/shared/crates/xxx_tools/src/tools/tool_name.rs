@@ -8,8 +8,8 @@ use std::error::Error;
 use rustc_hash::FxHashMap;
 use crossbeam::channel::{bounded, unbounded};
 use rayon::prelude::*;
-use mdi::pub_key_constants;
-use mdi::workflow::{Workflow, Config, Counters};
+use rudi::pub_key_constants;
+use rudi::workflow::{Workflow, Config, Counters};
 
 // constants for environment variable, config, and counter keys, etc.
 const TOOL: &str = "tool_name";

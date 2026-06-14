@@ -7,19 +7,19 @@ nav_order: 0
       e.g, "My Tools", which will appear on the menu tab item -->
 
 <!-- please do not alter the next line -->
-{% include mdi-project-overview.md %}
+{% include rudi-project-overview.md %}
 
 <!-- replace this section with markdown content describing your tool suite -->
 <!-- https://www.markdownguide.org/basic-syntax/ -->
 
-These pages provide a detailed description of the **MDI tool suite template**, 
-which you can use to create your own suite of Stage 1 Pipelines and Stage 2 Apps. 
+These pages provide a detailed description of the **RuDI tool suite template**, 
+which you can use to create your own tool suite of pipeline and apps. 
 
-- <https://github.com/MiDataInt/mdi-suite-template>
+- <https://github.com/RustyDataInt/rudi-suite-template>
 
 ### Quick start
 
-[**Click here**](https://github.com/MiDataInt/mdi-suite-template/generate) 
+[**Click here**](https://github.com/RustyDataInt/rudi-suite-template/generate) 
 to create a new tool suite repository from the template.
 
 You will be prompted for the user and name of the repository you would like 
@@ -46,8 +46,8 @@ In addition, you will want to explore the documentation for the
 pipelines and apps frameworks that provide support functions
 for writing tools:
 
-- [Stage 1 pipelines framework](/mdi-pipelines-framework)
-- [Stage 2 apps framework](/mdi-apps-framework)
+- [pipelines framework](/rudi-pipelines-framework)
+- [apps framework](/rudi-apps-framework)
 
 <!-- please do not alter the next line -->
-{% include mdi-project-documentation.md %}
+{% include rudi-project-documentation.md %}

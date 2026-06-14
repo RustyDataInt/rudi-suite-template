@@ -4,7 +4,7 @@
 TOOL_SUITE="__TOOL_SUITE_NAME__"
 SUITE_COMMAND="__TOOL_SUITE_SHORT_NAME__"
 
-MDI="../../../../mdi"
+RUDI="../../../../rudi"
 
 create_options_file () {
 
@@ -24,7 +24,7 @@ create_options_file () {
     echo -e '```'"\n$SUITE_COMMAND $COMMAND\n"'```'"\n" >> $FILE
 
     echo -e '```' >> $FILE
-    $MDI -d $COMMAND | tail -n+2 >> $FILE
+    $RUDI -d $COMMAND | tail -n+2 >> $FILE
     echo -e '```' >> $FILE
 }
 

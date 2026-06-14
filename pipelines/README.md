@@ -1,5 +1,5 @@
 ---
-title: Stage 1 Pipelines
+title: Pipelines
 has_children: true
 nav_order: 20
 published: true # set to false to remove this tab from your suite's doc site
@@ -9,10 +9,10 @@ published: true # set to false to remove this tab from your suite's doc site
 
 A **pipeline** (also called a workflow) is a single, coordinated set
 of data analysis instructions that can be called by name using the
-mdi command line utility, e.g.,
+command line utility, e.g.,
 
 ```bash
-mdi <pipeline> ...
+rudi <pipeline> ...
 ```
 
 A pipeline is distinct from many standalone programs in

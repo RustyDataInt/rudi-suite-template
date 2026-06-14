@@ -18,16 +18,16 @@ my $usage = "perl alias.pl ALIAS_NAME\nadds an alias to './run', called ALIAS NA
 #========================================================================
 # main execution block
 #------------------------------------------------------------------------
-my $MDI_CENTRIC   = "mdi-centric";
-my $SUITE_CENTRIC = "suite-centric";
-my $SUITE_MODE    = $MDI_CENTRIC;
-my $MDI_DIR       = "../../..";
-if( !-f "$MDI_DIR/mdi" or !-d "$MDI_DIR/frameworks" or !-d "$MDI_DIR/suites" ) {
-    $SUITE_MODE = $SUITE_CENTRIC; # i.e., this is the top-level of a single-suite installation
+my $IS_MULTI_SUITE  = "is-multi-suite";
+my $IS_SINGLE_SUITE = "is-single-suite";
+my $SUITE_MODE = $IS_MULTI_SUITE;
+my $RUDI_DIR    = "../../..";
+if( !-f "$RUDI_DIR/rudi" or !-d "$RUDI_DIR/frameworks" or !-d "$RUDI_DIR/suites" ) {
+    $SUITE_MODE = $IS_SINGLE_SUITE; # i.e., this is the top-level of a single-suite installation
 }
-if( $SUITE_MODE eq $MDI_CENTRIC ) {
+if( $SUITE_MODE eq $IS_MULTI_SUITE ) {
     print STDERR "\nNothing to do.\n\n";
-    print STDERR "This copy of the tool suite is part of an MDI installation in directory:\n    $MDI_DIR\n\n";
+    print STDERR "This copy of the tool suite is part of a RuDI installation in directory:\n    $RUDI_DIR\n\n";
     print STDERR "This alias.pl script is only useful in the top directory of a single-suite installation.\n\n";
     exit 1;
 }
@@ -38,7 +38,7 @@ $alias or throwError("missing alias name");
 my $bashrc = "$ENV{HOME}/.bashrc";
 my $suiteDir = $ENV{PWD};
 my $aliasCommand = "alias $alias=\"$suiteDir/run\"";
-my $outLine = "$aliasCommand # written by MDI alias\n";
+my $outLine = "$aliasCommand # written by RuDI alias\n";
 
 # get user permission to modify their profile
 getPermissionGeneral(
@@ -78,7 +78,7 @@ close $inH;
 $replaced or push @profile, $outLine;  
 
 # print the new file
-my $buFile = "$bashrc.mdiAliasBackup";
+my $buFile = "$bashrc.rudiAliasBackup";
 -e $buFile or copy($bashrc, $buFile);
 open my $outH, ">", $bashrc or die "could not write file: $bashrc: $!\n";
 print $outH join("", @profile);

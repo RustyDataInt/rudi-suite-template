@@ -12,7 +12,7 @@ the behavior of a single pipeline, a.ka. workflow.
 
 ### Pipeline actions
 
-Each MDI pipeline must have one or more **actions** defined
+Each pipeline must have one or more **actions** defined
 in _pipeline.yml_ and organized into pipeline subfolders.
 Actions are entered by users at the command line or in
 _data.yml_ job configuration files.
@@ -26,8 +26,8 @@ actions:
 
 ```bash
 # command line
-mdi <pipeline> <actionName> ...
-mdi myPipeline do ...
+rudi <pipeline> <actionName> ...
+rudi myPipeline do ...
 ```
 
 ```yml
@@ -95,10 +95,10 @@ options `--output-dir` and `--data-name`. File names should always be prefixed w
 ```
 
 `--output-dir` and `--data-name` are thus universally required options, 
-as enforced by the MDI pipelines framework, i.e., you do not need to list them.
+as enforced by the pipelines framework, i.e., you do not need to list them.
 
 By the
-[MDI Code of Conduct](https://midataint.github.io/docs/registry/00_index/#mdi-developer-code-of-conduct),
+[Code of Conduct](https://RustyDataInt.github.io/docs/registry/00_index/#rudi-developer-code-of-conduct),
 pipelines are only allowed to write output files to `--output-dir`.
 
 ## Stage 1 versioning

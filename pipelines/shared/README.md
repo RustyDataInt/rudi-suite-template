@@ -1,22 +1,20 @@
 ---
 title: Pipeline Shared Files
-parent: Stage 1 Pipelines
+parent: Pipelines
 has_children: true
 nav_order: 30
 ---
 
 ## {{page.title}}
 
-MDI Stage 1 Pipelines suites support three types of reusable code 
+RuDI Pipelines suites support four types of reusable code 
 components that can be shared between all pipelines in the suite,
-which are defined in the _\<suite\>/shared_ folder.
+which are defined in the _\<suite\>/pipelines/shared_ folder.
 
+- **crates** = Rust tool package, often as single tools binary per suite
 - **environments** = yml config files that create conda environments for job execution
 - **modules** = script libraries that provide code for use by running pipelines
 - **options** = yml config files that expose option families for job configuration
-
-In all cases, the components are effectively placed inline into the 
-_pipeline.yml_ file that configures a specific pipeline.
 
 ### Private vs. shared components
 
@@ -37,7 +35,7 @@ always loaded from the 'shared' folder.
 Component sharing can extend beyond a single tool suite, such that
 _pipeline.yml_ may also attempt to load an environment, module, or option 
 family from a different tool suite, which must also be installed into 
-the working MDI directory by setting `suite_dependencies` in the calling suite's
+the working RuDI directory by setting `suite_dependencies` in the calling suite's
 _\_config.yml_ file.
 
 ```yml
@@ -61,7 +59,7 @@ actions:
             - <suite>//shared-options
 ```
 
-If running in developer mode, the MDI pipelines framework looks for external component files
+If running in developer mode, the pipelines framework looks for external component files
 in a forked repository first, if it exists. Otherwise, it falls back to using
 files from definitive suite repositories.
 

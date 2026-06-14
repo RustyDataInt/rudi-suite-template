@@ -1,24 +1,20 @@
-# MDI Tools Suite Template
+# RuDI Tools Suite Template
 
-The [Michigan Data Interface](https://midataint.github.io/) (MDI) 
-is a framework for developing, installing and running 
-Stage 1 HPC **pipelines** and Stage 2 interactive web applications 
-(i.e., **apps**) in a standardized design interface.
+The [Rusty Data Interface](https://rustydataint.github.io/) (RuDI) 
+is a framework for developing, installing and running HPC **pipelines** 
+and interactive web **apps** in a standardized design interface
+with a Rust-first mindset.
 
-This is a **repository template** for creating a new **MDI tools suite**. 
+This is a **repository template** for creating a new **RuDI tools suite**. 
 Follow the instructions below to copy this repository, then fill your 
 copy with code to define a suite of your own data analysis tools.
-
-The steps below were performed to create a simple demo tool suite
-with working pipelines and apps.
-- <https://github.com/MiDataInt/demo-mdi-tools.git>
 
 ## Template usage
 
 ### Create a new repository from this template
 
 **To get started quickly**, 
-[click here to create a new suite repository from this template](https://github.com/MiDataInt/mdi-suite-template/generate).
+[click here to create a new suite repository from this template](https://github.com/RustyDataInt/rudi-suite-template/generate).
 
 You will be prompted for the user and name of the repository you would like 
 to create.
@@ -33,16 +29,16 @@ start coding and writing documentation files.
 ### Additional usage instructions
 
 The following documentation pages have detailed information
-on the features of your new tool suite and the MDI frameworks
+on the features of your new tool suite and the RuDI frameworks
 that will help you quickly develop pipelines and apps:
 
-- [Tool suite template documentation](https://midataint.github.io/mdi-suite-template)
-- [MDI pipelines framework documentation](https://midataint.github.io/mdi-pipelines-framework)
-- [MDI apps framework documentation](https://midataint.github.io/mdi-apps-framework)
+- [Tool suite template documentation](https://RustyDataInt.github.io/rudi-suite-template)
+- [Pipelines framework documentation](https://RustyDataInt.github.io/rudi-pipelines-framework)
+- [Apps framework documentation](https://RustyDataInt.github.io/rudi-apps-framework)
 
 ### Finishing your tool suite README.md
 
-This file becomes the README for your tool suite.
+This file becomes the README.md for your tool suite.
 Delete everything up to this section, then modify the sections below 
 to match your tool suite. 
 
@@ -62,14 +58,15 @@ The steps to using __TOOL_SUITE_NAME__ are to:
 - install the codebase in this repository
 - obtain or build the required runtime environment
 - MORE STEPS HERE
-- visualize results in the R Shiny apps
+- visualize results in the interactive apps
 
 ## Single-suite installation (recommended)
 
 __TOOL_SUITE_NAME__ is implemented in the
-[Michigan Data Interface](https://midataint.github.io/) (MDI)
-for developing, installing and running Stage 1 HPC **pipelines** 
-and Stage 2 interactive web **apps**. For __TOOL_SUITE_NAME__, 
+[Rusty Data Interface](https://RustyDataInt.github.io/) (RuDI)
+for developing, installing and running HPC **pipelines** 
+and interactive web **apps** in a standardized design interface
+with a Rust-first mindset. For __TOOL_SUITE_NAME__, 
 we recommend a single-suite installation, which is accomplished by:
 - cloning this tool suite repository
 - running _install.sh_
@@ -85,7 +82,7 @@ Run the following to install the tool suite and command line interface (CLI).
 ```bash
 git clone https://github.com/__GIT_OWNER__/__TOOL_SUITE_NAME__.git
 cd __TOOL_SUITE_NAME__
-./install.sh 1 
+./install.sh
 ```
 
 ### Create an alias to the command line interface (optional)
@@ -106,7 +103,7 @@ or `cd` into the directory prior to calling `./__TOOL_SUITE_SHORT_NAME__`.
 
 For help, call the CLI with no arguments, which describes the format for pipeline calls. 
 
-```bash
+```sh
 # use the alias, if you created it as described above
 __TOOL_SUITE_SHORT_NAME__ 
 __TOOL_SUITE_SHORT_NAME__ --help
@@ -132,7 +129,7 @@ on your server - the containers will download and be used automatically.
 
 If you wish to use containers but need to run a different command
 to make `singularity` available, follow the instructions in
-`.../mdi/config/singularity.yml` to communicate that command to the CLI.
+`.../rudi/config/singularity.yml` to communicate that command to the CLI.
 
 ### Build the Conda environments locally
 
@@ -174,7 +171,7 @@ parameters for your job and execution steps.
 
 See [the templates folder](https://github.com/__GIT_OWNER__/__TOOL_SUITE_NAME__/tree/main/templates)
 for job file templates for all __TOOL_SUITE_NAME__ pipelines
-and actions, and <https://midataint.github.io/mdi/docs/job_config_files.html>
+and actions, and <https://RustyDataInt.github.io/rudi/docs/job_config_files.html>
 for extended help on using job files. Job file templates can also be generated with 
 command `__TOOL_SUITE_SHORT_NAME__ <pipeline> template`, e.g., `__TOOL_SUITE_SHORT_NAME__ analyze template`.
 
@@ -220,12 +217,12 @@ output, job, and resource files in your __TOOL_SUITE_NAME__ workspace
 (create *** folders manually as needed).
 
 ```sh
-__TOOL_SUITE_NAME__                    # root folder you created above
+__TOOL_SUITE_NAME__        # root folder you created above
 ├── input                  # *** folder for your input data files
 │   └── project1           # *** subfolder for a related set of samples
 ├── jobFiles               # *** folder for your job configuration files
 │   └── project1
-├── mdi                    # MDI codebase folder created by __TOOL_SUITE_NAME__ installation
+├── rudi                   # RuDI codebase folder created by __TOOL_SUITE_NAME__ installation
 │   ├── config             # folder with configuration files you may need
 │   └── resources          # folder where resource files are placed by default
 └── output                 # *** folder for your output data files
@@ -242,58 +239,58 @@ Once all pipelines have finished running, you will want to view and interact
 with your data.
 
 To install and launch the __TOOL_SUITE_NAME__ apps server, we recommend using the 
-[MDI Desktop app](https://midataint.github.io/mdi-desktop-app),
-which allows you to control both local and remote MDI web servers.
+[RuDI Desktop](https://RustyDataInt.github.io/rudi-desktop-app),
+which allows you to control both local and remote app servers.
 
 After following the instructions to run the Desktop on your local machine
-or server, load a __TOOL_SUITE_NAME__ data package file ending in `.mdi.package.zip`,
+or server, load a __TOOL_SUITE_NAME__ data package file ending in `.rudi.package.zip`,
 into the app interface. If possible, the relevant container
 will automatically be downloaded and used to run the apps server.
 
 ## Alternative multi-suite installation
 
-You can alternatively install __TOOL_SUITE_NAME__ as part of an MDI 
+You can alternatively install __TOOL_SUITE_NAME__ as part of a RuDI
 **multi-suite installation** that carries multiple distinct tool suites.
 
 In the multi-suite mode, you will:
-- clone and install the MDI framework
-- add __TOOL_SUITE_NAME__ (and later others) to your MDI installation
-- call the `mdi` utility to use tools from any installed suite
+- clone and install the RuDI framework
+- add __TOOL_SUITE_NAME__ (and later others) to your installation
+- call the `rudi` utility to use tools from any installed suite
 
-### Install the MDI framework
+### Install the RuDI framework
 
-Run the following to install the MDI command line interface (CLI).
+Run the following to install the RuDI command line interface (CLI).
 
 ```bash
-git clone https://github.com/MiDataInt/mdi.git
-cd mdi
-./install.sh 1
+git clone https://github.com/RustyDataInt/rudi.git
+cd rudi
+./install.sh
 ```
 
-### Add an mdi alias to .bashrc (optional)
+### Add a rudi alias to .bashrc (optional)
 
 ```bash
-./mdi alias --help
-./mdi alias --alias mdi # change the alias name if you'd like 
-mdi
+./rudi alias --help
+./rudi alias --alias rudi # change the alias name if you'd like 
+rudi
 ```
 
 Answer 'y' to add the alias to your bash profile, then 
 reload a new shell to activate the alias for use.
 
 If you prefer not to use an alias, 
-add the MDI installation directory to your PATH variable,
-or `cd` into the directory prior to calling `./mdi`.
+add the RuDI installation directory to your PATH variable,
+or `cd` into the directory prior to calling `./rudi`.
 
-### Add __TOOL_SUITE_NAME__ to your MDI installation
+### Add __TOOL_SUITE_NAME__ to your installation
 
 ```bash
-./mdi add --help
-./mdi add --suite __GIT_OWNER__/__TOOL_SUITE_NAME__
+./rudi add --help
+./rudi add --suite __GIT_OWNER__/__TOOL_SUITE_NAME__
 ```
 
-Later you can add additional tool suites to this same MDI installation 
-as needed, which can reduce disk utilization for resource files and R libraries.
+Later you can add additional tool suites to this same RuDI installation 
+as needed, which can reduce disk utilization from duplicated files.
 
 ## Alternative container-only method of using __TOOL_SUITE_NAME__ pipelines
 

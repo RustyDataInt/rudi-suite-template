@@ -1,11 +1,11 @@
 # edit the following title and description to match your suite repository
 title: "Tool Suite Template"
-description: "Repository template to create a tools suite for the Michigan Data Interface"
+description: "Repository template to create a tools suite for the Rusty Data Interface (RuDI)"
 
 # edit the following for the upper-right navigation link on the documentation page
 aux_links:
   "Go To Repo on GitHub":
-    - "https://github.com/MiDataInt/mdi-suite-template"
+    - "https://github.com/RustyDataInt/rudi-suite-template"
 
 # OPTIONAL: uncomment to list any external tool suite dependencies
 # suite_dependencies:
@@ -28,8 +28,8 @@ container:
 #------------------------------------------------------------------------------
 
 # theme information
-remote_theme: MiDataInt/just-the-docs-mdi
-logo: "/assets/images/mdi-logo-text-200.png"
+remote_theme: RustyDataInt/just-the-docs-rudi
+logo: "/assets/images/rudi-logo-text-200.png"
 
 # footer content
 back_to_top: true
