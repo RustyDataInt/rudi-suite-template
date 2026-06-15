@@ -1,8 +1,8 @@
 # RuDI Tools Suite Template
 
 The [Rusty Data Interface](https://rustydataint.github.io/) (RuDI) 
-is a framework for developing, installing and running HPC **pipelines** 
-and interactive web **apps** in a standardized design interface
+is a standardized framework for developing and running HPC data 
+analysis **pipelines** and interactive visualization **apps**
 with a Rust-first mindset.
 
 This is a **repository template** for creating a new **RuDI tools suite**. 
