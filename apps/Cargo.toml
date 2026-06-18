@@ -1,0 +1,15 @@
+# This Cargo.toml file in the root `apps` folder of your RuDI 
+# tool suite establishes its multi-app Rust workspace.
+
+[workspace]
+resolver = "3"
+members = [
+
+    # Do not delete. Your workspace must include the server backend
+    # as it provides the `main.rs::main()` function that runs your apps.
+    "shared/server", 
+
+    # !!! Add one entry here for each app in your tool suite. !!!
+    # Each app is defined by one library crate in this folder.
+    "demo_app"
+]

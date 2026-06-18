@@ -1,0 +1,27 @@
+# Configuration file for values that apply to one app.
+
+# App metadata.
+order = 1
+name = "demo_app" # must match Cargo.toml in this same app folder; no spaces
+label = "Demo App"
+description = "A simple demonstration of how to build a RuDI app."
+
+# Data package types, as defined by pipelines, that the app can take as input.
+[package_types]
+demo_data = [ "demo_csv" ] # array elements list required content file types
+# Continue adding additional supported data package types as needed.
+
+# App steps listed on the left sidebar tab navigator, in this order.
+[[app_steps]]
+name = "data_table"
+label = "Data Table"
+component = "DemoTable"
+description = "Demonstration of an interactive data table."
+
+[[app_steps]]
+name = "data_plot"
+label = "Data Plot"
+component = "DemoPlot"
+description = "Demonstration of an interactive data plot."
+
+# Continue adding additional app steps as needed.

@@ -12,8 +12,8 @@ csv         = "1.4"
 flate2      = "1.1"
 serde       = { version = "1.0", features = ["derive"] }
 
-rudi     = { git = "https://github.com/RustyDataInt/rudi-pipelines-framework", branch = "main" }
-genomex = { git = "https://github.com/wilsontelab/genomex-rudi-tools",         branch = "main" }
+rudi = { git = "https://github.com/RustyDataInt/rudi-pipelines-framework", package = "rudi_pipelines_framework" }
+genomex = { git = "https://github.com/wilsontelab/genomex-rudi-tools" }
 
 # rudi    = { path = "../../../../../../frameworks/developer-forks/rudi-pipelines-framework/crates/rudi" }
 # genomex = { path = "../../../../genomex-rudi-tools/shared/crates/genomex" }

@@ -2,7 +2,7 @@
 title: Pipelines
 has_children: true
 nav_order: 20
-published: true # set to false to remove this tab from your suite's doc site
+published: true
 ---
 
 ## {{page.title}}

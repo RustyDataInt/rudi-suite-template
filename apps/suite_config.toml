@@ -1,0 +1,10 @@
+# Configuration file for values that apply to all apps in a suite,
+# and/or to a specific installation of the tool suite on a server.
+
+# Suite metadata.
+name = "rud_suite_template" # must match Cargo.toml in this same app folder; no spaces
+label = "RuDI Suite Template"
+description = "The template to use when building a new RuDI tool suite."
+
+# Server properties.
+max_upload_megabytes = 10 # corresponding to axum::DefaultBodyLimit
