@@ -13,31 +13,91 @@ interface for analyzing data packages created by pipelines. RuDI uses
 [Dioxus](https://dioxuslabs.com/)
 to create "fullstack" apps that can be run on many different 
 platforms, including public web servers, remote HPC servers, 
-and desktop and laptop computers.
+and desktop or laptop computers.
 
-### Multi-app Rust workspace organization
+## TLDR: Initializing a new suite and app
 
-The `Cargo.toml` file in the root of this `apps` folder
-sets up the Rust workspace for your multi-app tool suite.
-Edit it to list one workspace member for each app folder.
-Retain this configuration even if you only have one app.
+Edit files:
+- .../apps/suite_config.toml (once per tool suite)
+- .../apps/Cargo.toml (add each new app dependency)
+- .../apps/shared/server/Cargo.toml (add each new app member)
+- .../apps/<your_app_library> (source code for each new app)
+- .../apps/shared/<your_shared_library> (source code for suite-level functions)
+- .../apps/shared/server/assets/* (CSS, Javacript, or other suite-level assets)
 
-The `shared` folder has one subfolder called `server`, 
-which is a Rust binary crate with the `main.rs` file and 
-`main()` function that runs your apps. You must also edit
-its `Cargo.toml` file to declare a dependency on each of 
-your app crates where indicated. Otherwise, most developers 
-do not need to edit this framework-level crate. 
+## Multi-app Rust workspace organization
 
-The `shared` folder is also the place to put any
-tool-suite-specific library crates that define Dioxus components,
+RudI tool suites are structured to carry zero, one, or multiple 
+apps in a multi-app configuration.
+
+### Workspace Cargo.toml file with app members
+
+The `Cargo.toml` file in the root of this `apps` folder sets  
+up the Rust workspace for your multi-app tool suite. Edit it  
+to list one workspace member for each app folder. Retain this 
+configuration even if you only have one app.
+
+```toml
+# your_tool_suite/apps/Cargo.toml
+members = [
+    "shared/server", # do not delete
+    "my_app1",       # same as your app folder name
+    "my_app2"        # etc.
+]
+```
+
+### Shared folder for code relevant to multiple apps
+
+The `shared` folder has one subfolder called `server`, which 
+is a Rust binary crate with the `main.rs` file and `main()` 
+function that runs your apps. You must also edit its `Cargo.toml` 
+file to declare a dependency on each of your app crates. 
+Otherwise, most developers do not need to edit this 
+framework-level crate. 
+
+```toml
+# your_tool_suite/apps/shared/server/Cargo.toml
+[dependencies]
+my_app1 = { path = "../../my_app1" } # matching the app workspace members
+my_app2 = { path = "../../my_app2" } # always use the ../.. path prefix
+```
+
+The `shared` folder is also the place to put any 
+tool-suite-specific library crates that define your Dioxus components,
 utilities, and server functions shared by more than one app.
 
-Each additional subfolder in the `apps` folder is a
-Rust library crate that defines a single Dioxus app,
-i.e., with a `lib.rs` file. Edit this crate to describe 
-the app and to create app-specific components, utilities,
-and server functions.
+### One apps folder for each app
+
+Each additional subfolder in the `apps` folder is a Rust 
+library crate that defines a single Dioxus app, i.e., with 
+a `lib.rs` file. Edit this crate to describe the app and to 
+create app-specific components, utilities, and server functions
+(see below).
+
+## Suite-level configuration file
+
+Following Rust and Dioxus style, the apps framework uses TOML
+configuration files for describing your tool suite and apps.
+
+First, edit `suite_config.toml` in this apps root folder,
+which defines metadata for your tool suite and sets operating
+parameters that apply to all apps.
+
+```toml
+# your_tool_suite/apps/suite_config.toml
+name = "your_tool_suite" # must match the app's Cargo.toml
+label = "Your Suite Label"
+description = "Short text description of your tool suite."
+
+# plus additional fields found in the template file
+```
+
+## Building a new app
+
+Create a folder for your app in the app folder.
+
+###
+
 
 
 
@@ -60,7 +120,7 @@ with _config.yml_ and _server.R_ when the app loads
 - ui
 - utilities 
 
-## Stage 2 versioning
+## App versioning
 
 ### App versions
 

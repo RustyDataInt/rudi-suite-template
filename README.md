@@ -19,22 +19,23 @@ copy with code to define a suite of your own data analysis tools.
 You will be prompted for the user and name of the repository you would like 
 to create.
 
-### Copy and use the _template pipeline or app
+### Copy and use the demo pipeline or app
 
-The easiest way to start a new tool is to copy and modify the _\_template_
-pipeline or app, which provides a working boilerplate for all required code. 
-Copy/paste the template folder, change its name to match the tool name, and 
-start coding and writing documentation files.
+The easiest way to start a new tool is to rename and modify the `demo_pipeline`
+or `demo_app`, which provide working boilerplate for all required code. The
+demos are fully functional, so you can use them to practice running a simple
+pipeline or app before modifying them. If you don't rename the demos, you'll 
+eventually want to delete them.
 
 ### Additional usage instructions
 
-The following documentation pages have detailed information
-on the features of your new tool suite and the RuDI frameworks
-that will help you quickly develop pipelines and apps:
+The following documentation pages have detailed information on the features 
+of your new tool suite and the RuDI frameworks that will help you quickly 
+develop pipelines and apps:
 
-- [Tool suite template documentation](https://RustyDataInt.github.io/rudi-suite-template)
-- [Pipelines framework documentation](https://RustyDataInt.github.io/rudi-pipelines-framework)
-- [Apps framework documentation](https://RustyDataInt.github.io/rudi-apps-framework)
+- [tool suite template documentation](https://RustyDataInt.github.io/rudi-suite-template)
+- [pipelines framework documentation](https://RustyDataInt.github.io/rudi-pipelines-framework)
+- [apps framework documentation](https://RustyDataInt.github.io/rudi-apps-framework)
 
 ### Finishing your tool suite README.md
 

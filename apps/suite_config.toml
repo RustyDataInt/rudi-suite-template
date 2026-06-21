@@ -2,8 +2,8 @@
 # and/or to a specific installation of the tool suite on a server.
 
 # Suite metadata.
-name = "rud_suite_template" # must match Cargo.toml in this same app folder; no spaces
-label = "RuDI Suite Template"
+name = "rudi_suite_template"  # must match Cargo.toml in this same app folder; no spaces
+label = "RuDI Suite Template" # for display in the UI
 description = "The template to use when building a new RuDI tool suite."
 
 # Server properties.

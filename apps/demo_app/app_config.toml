@@ -1,9 +1,9 @@
 # Configuration file for values that apply to one app.
 
 # App metadata.
-order = 1
-name = "demo_app" # must match Cargo.toml in this same app folder; no spaces
-label = "Demo App"
+order = 1 # for sorting apps in the app chooser
+name = "demo_app"  # must match Cargo.toml in this same app folder; no spaces
+label = "Demo App" # for display in the UI
 description = "A simple demonstration of how to build a RuDI app."
 
 # Data package types, as defined by pipelines, that the app can take as input.
@@ -13,9 +13,9 @@ demo_data = [ "demo_csv" ] # array elements list required content file types
 
 # App steps listed on the left sidebar tab navigator, in this order.
 [[app_steps]]
-name = "data_table"
-label = "Data Table"
-component = "DemoTable"
+name = "data_table"     # no spaces
+label = "Data Table"    # for display in the UI side navbar
+component = "DemoTable" # the Dioxus component function, re-exported in the app's lib.rs
 description = "Demonstration of an interactive data table."
 
 [[app_steps]]

@@ -2,7 +2,7 @@
 # These definition file sections should be completed if your tool suite
 # offers a suite-level Singularity container, otherwise this file may be ignored.
 #------------------------------------------------------------------------------
-# A suite-level container may deliver all pipelines, all apps, or both. If different 
+# A suite-level container can deliver all pipelines, all apps, or both. If different 
 # containers are required for different tools, they must be in different suites,
 # or delivered without support for suite-level containers, e.g., with pipeline containers.
 #------------------------------------------------------------------------------

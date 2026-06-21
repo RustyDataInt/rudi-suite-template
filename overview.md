@@ -33,18 +33,16 @@ to find lines to edit to match your needs:
 - LICENSE
 - README.md
 
-Then copy and modify the '_template' pipeline or app, which provides a working 
-boilerplate for all required code. 
+Then rename and modify `demo_pipeline` and/or `demo_app` to create your 
+tools, which provides working boilerplate for all required code. 
 
 ### Further documentation
 
-The rest of these pages walk you through
-the basic structure of pipeline and app assemblies and 
-provide a working reference as you write code.
+The rest of these pages walk you through the basic structure of pipeline 
+and app assemblies and provide a working reference as you write code.
 
-In addition, you will want to explore the documentation for the
-pipelines and apps frameworks that provide support functions
-for writing tools:
+In addition, you will want to explore the documentation for the pipelines 
+and apps frameworks that provide support functions for writing tools:
 
 - [pipelines framework](/rudi-pipelines-framework)
 - [apps framework](/rudi-apps-framework)

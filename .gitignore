@@ -1,13 +1,26 @@
 # exclude nested, i.e., single-suite installations
 # within this suite's git repository, or single-suite containers
 /rudi/
+/bin/
+/config/
 /containers/
+/data/
+/environments/
+/frameworks/
+/remote/
+/resources/
+/sessions/
+/suites/
 
-# exclude Rust build artifacts
+# exclude Rust pipeline build artifacts
 **/crates/target
-**/crates/Cargo.lock
 **/crates/*/target
-**/crates/*/Cargo.lock
+**/*.rs.bk
+
+# exclude Rust app build artifacts
+/apps/target
+/apps/*/target
+/apps/shared/server/target
 
 # exclude development artifacts and temporary files
 unused/
