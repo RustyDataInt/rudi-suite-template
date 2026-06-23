@@ -2,8 +2,8 @@
 //! for the server application that runs your apps.
 //! 
 //! You do not usually edit this file.  All code it needs is either:
-//!   - built by `server::build.rs` via `rudi::server::build()`
-//!   - called by the built code from `rudi::server` and other modules
+//!   - built by `server::build.rs` via `rudi_apps::server::build()`
+//!   - called by the built code from `rudi_apps::server` and other modules
 //!   - a simple, unchanging wrapper that defines the main page layout
 //!
 //! However, there are advanced cases where you might want to customize 
@@ -11,7 +11,7 @@
 
 // imports
 use dioxus::prelude::*;
-use rudi::server::*;
+use rudi_apps::server::*;
 
 // additional imports of app crates, which must re-export all app step components
 include!(concat!(env!("OUT_DIR"), "/app_imports.rs"));
@@ -19,6 +19,7 @@ include!(concat!(env!("OUT_DIR"), "/app_imports.rs"));
 // module wrapper for loading the static server configuration
 mod server_config {
     use std::sync::OnceLock;
+    use rudi_apps::server::*;
     static SERVER_CONFIG: OnceLock<ServerConfig> = OnceLock::new();
 
     /// Return a reference to the suite config, with all app configs.
@@ -42,10 +43,12 @@ fn main() {
     dioxus::serve(|| async move {
         // override DefaultBodyLimit as needed for large file uploads
         use dioxus::fullstack::axum_core::extract::DefaultBodyLimit;
-        let max_upload_bytes: usize = max_upload_megabytes * 1024 * 1024;
+        let max_upload_bytes: usize = max_upload_megabytes as usize * 1024 * 1024;
         let router = dioxus::server::router(RudiServerBoundaries)
             .layer(DefaultBodyLimit::max(max_upload_bytes));
+
             // DEVELOPER_NOTE: Add any necessary middleware here.
+
         Ok(router)
     })
 }
@@ -105,7 +108,7 @@ fn RudiServer() -> Element {
 #[component]
 fn RudiLayout() -> Element {
     let server_state = use_context::<ServerState>();
-    let app_step_name = use_memo(|| server_state.get_step());
+    let app_step_name = use_memo(move || server_state.get_step());
     rsx! {
         div { class: "rudi-header-layout",
             div { class: "rudi-sidebar-layout",
@@ -121,11 +124,7 @@ fn RudiLayout() -> Element {
                     AppStepChooser {}
                 }
                 div { id: "app-steps-content",
-                    match server_state.get_app() {
-                        include!(concat!(env!("OUT_DIR"), "/app_step_components.rs"))
-                        Some(app_name) => rsx!{ format!("Error: App '{}' not found.", app_name) },
-                        None => AppChooser {},
-                    }
+                    { include!(concat!(env!("OUT_DIR"), "/app_matcher.rs")) }
                 }
             }
         }

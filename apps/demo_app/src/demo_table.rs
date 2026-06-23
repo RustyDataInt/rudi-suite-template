@@ -2,12 +2,12 @@
 
 // imports
 use dioxus::prelude::*;
-use rudi_suite::prelude::*;
+use rudi_apps::prelude::*;
 
 /// The `DemoTable` app-step component.
 #[component]
-fn DemoTable() -> Element {
-    let server_state = use_context::<ServerState>();
+pub fn DemoTable() -> Element {
+    let _server_state = use_context::<ServerState>();
     rsx! {
         "DemoTable pending"
     }

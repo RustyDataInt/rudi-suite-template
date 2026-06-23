@@ -2,12 +2,12 @@
 
 // imports
 use dioxus::prelude::*;
-use rudi_suite::prelude::*;
+use rudi_apps::prelude::*;
 
 /// The `DemoPlot` app-step component.
 #[component]
-fn DemoPlot() -> Element {
-    let server_state = use_context::<ServerState>();
+pub fn DemoPlot() -> Element {
+    let _server_state = use_context::<ServerState>();
     rsx! {
         "DemoPlot pending"
     }
