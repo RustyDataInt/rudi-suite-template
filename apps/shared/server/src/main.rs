@@ -89,7 +89,7 @@ fn RudiServer() -> Element {
 
     // make the server config and state available as global context
     let server_config = server_config::get_server_config();
-    use_context_provider(|| server_config);
+    use_context_provider(|| server_config.clone());
     let server_state = ServerState::new(&server_config.suite_config.name);
     use_context_provider(|| server_state);
 

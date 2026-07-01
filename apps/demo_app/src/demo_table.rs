@@ -9,6 +9,6 @@ use rudi_apps::prelude::*;
 pub fn DemoTable() -> Element {
     let _server_state = use_context::<ServerState>();
     rsx! {
-        "DemoTable pending"
+        "DemoTable pending yyyyy"
     }
 }

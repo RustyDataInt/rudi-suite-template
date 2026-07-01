@@ -16,6 +16,8 @@
 **/crates/target
 **/crates/*/target
 **/*.rs.bk
+target.*.tar
+target.*.tar.zst
 
 # exclude Rust app build artifacts
 /apps/target
