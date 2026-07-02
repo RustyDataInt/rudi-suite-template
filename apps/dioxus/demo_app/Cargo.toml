@@ -6,7 +6,7 @@ edition = "2021"
 
 [dependencies]
 
-rudi_apps = { path = "../../../../../frameworks/definitive/rudi-apps-framework/rudi_apps" }
+rudi_apps = { path = "../../../../../../frameworks/definitive/rudi-apps-framework/rudi_apps" }
 # rudi_apps = { git = "https://github.com/RustyDataInt/rudi-apps-framework" }
 
 # dioxus web app framework

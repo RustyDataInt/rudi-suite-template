@@ -18,7 +18,7 @@ demo_app = { path = "../../demo_app" }
 dioxus = { version = "0.7", features = ["fullstack"] }
 toml = "1.1"
 
-rudi_apps = { path = "../../../../../../frameworks/definitive/rudi-apps-framework/rudi_apps" }
+rudi_apps = { path = "../../../../../../../frameworks/definitive/rudi-apps-framework/rudi_apps" }
 # rudi_apps = { git = "https://github.com/RustyDataInt/rudi-apps-framework" }
 
 log = "0.4"
@@ -34,5 +34,5 @@ web     = ["dioxus/web"]
 server  = ["dioxus/server"]
 
 [build-dependencies]
-rudi_apps = { path = "../../../../../../frameworks/definitive/rudi-apps-framework/rudi_apps" }
+rudi_apps = { path = "../../../../../../../frameworks/definitive/rudi-apps-framework/rudi_apps" }
 # rudi_apps = { git = "https://github.com/RustyDataInt/rudi-apps-framework" }

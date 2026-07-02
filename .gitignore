@@ -20,9 +20,9 @@ target.*.tar
 target.*.tar.zst
 
 # exclude Rust app build artifacts
-/apps/target
-/apps/*/target
-/apps/shared/server/target
+/apps/dioxus/target
+/apps/dioxus/*/target
+/apps/dioxus/shared/server/target
 
 # exclude development artifacts and temporary files
 unused/

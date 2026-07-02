@@ -18,12 +18,12 @@ and desktop or laptop computers.
 ## TLDR: Initializing a new suite and app
 
 Edit files:
-- .../apps/suite_config.toml (once per tool suite)
-- .../apps/Cargo.toml (add each new app dependency)
-- .../apps/shared/server/Cargo.toml (add each new app member)
-- .../apps/<your_app_library> (source code for each new app)
-- .../apps/shared/<your_shared_library> (source code for suite-level functions)
-- .../apps/shared/server/assets/* (CSS, Javacript, or other suite-level assets)
+- .../apps/dioxus/suite_config.toml (once per tool suite)
+- .../apps/dioxus/Cargo.toml (add each new app dependency)
+- .../apps/dioxus/shared/server/Cargo.toml (add each new app member)
+- .../apps/dioxus/<your_app_library> (source code for each new app)
+- .../apps/dioxus/shared/<your_shared_library> (source code for suite-level functions)
+- .../apps/dioxus/shared/server/assets/* (CSS, Javacript, or other suite-level assets)
 
 ## Multi-app Rust workspace organization
 
@@ -38,7 +38,7 @@ to list one workspace member for each app folder. Retain this
 configuration even if you only have one app.
 
 ```toml
-# your_tool_suite/apps/Cargo.toml
+# your_tool_suite/apps/dioxus/Cargo.toml
 members = [
     "shared/server", # do not delete
     "my_app1",       # same as your app folder name
@@ -56,7 +56,7 @@ Otherwise, most developers do not need to edit this
 framework-level crate. 
 
 ```toml
-# your_tool_suite/apps/shared/server/Cargo.toml
+# your_tool_suite/apps/dioxus/shared/server/Cargo.toml
 [dependencies]
 my_app1 = { path = "../../my_app1" } # matching the app workspace members
 my_app2 = { path = "../../my_app2" } # always use the ../.. path prefix
@@ -84,7 +84,7 @@ which defines metadata for your tool suite and sets operating
 parameters that apply to all apps.
 
 ```toml
-# your_tool_suite/apps/suite_config.toml
+# your_tool_suite/apps/dioxus/suite_config.toml
 name = "your_tool_suite" # must match the app's Cargo.toml
 label = "Your Suite Label"
 description = "Short text description of your tool suite."

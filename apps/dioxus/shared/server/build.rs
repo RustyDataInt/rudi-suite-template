@@ -3,7 +3,7 @@
 //! including imports, structures, and enums.
 
 // RuDI developer note: this script:
-//     `rudi-suite-template/apps/shared/server/build.rs`
+//     `rudi-suite-template/apps/dioxus/shared/server/build.rs`
 // rarely changes even if updates are made to the shared builder:
 //     `rudi-apps-framework/rudi_apps/src/server/mod.rs::build()`
 // so `println!("cargo:rerun-if-changed=build.rs");` doesn't do much.
