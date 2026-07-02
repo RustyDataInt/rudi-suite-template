@@ -95,7 +95,7 @@ fn RudiServer() -> Element {
 
     rsx! {
         document::Link { rel: "icon",       href: RUDI_LOGO_ICO }
-        // document::Link { rel: "stylesheet", href: asset!("/assets/dx-components-theme.css")}
+        document::Link { rel: "stylesheet", href: DX_COMPONENTS_THEME }
         document::Link { rel: "stylesheet", href: RUDI_FRAMEWORK_CSS }
         document::Link { rel: "stylesheet", href: asset!("/assets/suite_stylesheet.css") }
         document::Script { src: RUDI_FRAMEWORK_JS }
@@ -111,7 +111,7 @@ fn RudiLayout() -> Element {
     let app_step_name = use_memo(move || server_state.get_step());
     rsx! {
         div { class: "rudi-header-layout",
-            div { class: "rudi-sidebar-layout",
+            div { class: "rudi-sidebar-layout rudi-banner",
                 div { id: "rudi-suite-name-wrapper",
                     SuiteLabel {}
                 }
@@ -120,7 +120,7 @@ fn RudiLayout() -> Element {
                 }
             }
             div { class: "rudi-sidebar-layout",
-                div { id: "app-steps-navbar-wrapper",
+                div { id: "app-steps-navbar-wrapper", class: "rudi-banner",
                     AppStepChooser {}
                 }
                 div { id: "app-steps-content",
