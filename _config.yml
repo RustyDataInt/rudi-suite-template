@@ -9,13 +9,13 @@ aux_links:
 
 # OPTIONAL: uncomment to list any external tool suite dependencies
 # suite_dependencies:
-#   - GIT_USER/REPOSITORY_NAME
+#   - GITHUB_OWNER/REPOSITORY_NAME
 
 # OPTIONAL: declare support for suite-level singularity containers
 container:
   supported:  false    # set to true if you maintain a suite-level container registry for this repository
   registry:   ghcr.io  # domain name of your OCI-compatible, oras-accessible, container registry
-  owner:      GIT_USER # REQUIRED: the name of the owner, e.g., user or organization, at 'registry'
+  owner:      GITHUB_OWNER # REQUIRED: the name of the owner, e.g., user or organization, at 'registry'
   installer:  apt-get  # the installer program used by the container OS, typically apt-get or yum
   stages:
     pipelines: false   # set to true to install conda environments into a suite-level pipelines container

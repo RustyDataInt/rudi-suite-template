@@ -50,7 +50,7 @@ An example of the relevant section of _\_config.yml_ activated for suite-level c
 container:
     supported:  true 
     registry:   ghcr.io 
-    owner:      GIT_USER 
+    owner:      GITHUB_OWNER 
     installer:  apt-get
     stages:
         pipelines: true 
@@ -80,7 +80,7 @@ An example of the relevant section of pipeline.yml activated for pipeline-level 
 container:
     supported: true 
     registry:  ghcr.io 
-    owner:     GIT_USER 
+    owner:     GITHUB_OWNER 
     installer: apt-get  
 ```
 

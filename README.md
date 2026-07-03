@@ -81,7 +81,7 @@ container-only way of using of __TOOL_SUITE_NAME__ pipelines.
 Run the following to install the tool suite and command line interface (CLI).
 
 ```bash
-git clone https://github.com/__GIT_OWNER__/__TOOL_SUITE_NAME__.git
+git clone https://github.com/__GITHUB_OWNER__/__TOOL_SUITE_NAME__.git
 cd __TOOL_SUITE_NAME__
 ./install.sh
 ```
@@ -170,7 +170,7 @@ __TOOL_SUITE_NAME__ pipelines can be called entirely using the CLI introduced ab
 are encouraged to create YAML-format job configuration files that define the
 parameters for your job and execution steps.
 
-See [the templates folder](https://github.com/__GIT_OWNER__/__TOOL_SUITE_NAME__/tree/main/templates)
+See [the templates folder](https://github.com/__GITHUB_OWNER__/__TOOL_SUITE_NAME__/tree/main/templates)
 for job file templates for all __TOOL_SUITE_NAME__ pipelines
 and actions, and <https://RustyDataInt.github.io/rudi/docs/job_config_files.html>
 for extended help on using job files. Job file templates can also be generated with 
@@ -200,7 +200,7 @@ listed here in execution order of the most common actions:
 Required/common options are described below; use 
 `__TOOL_SUITE_SHORT_NAME__ <pipeline> <action> --help` or `__TOOL_SUITE_SHORT_NAME__ <pipeline> template` 
 for complete option information, or see the action help 
-[here](https://github.com/__GIT_OWNER__/__TOOL_SUITE_NAME__/tree/main/options).
+[here](https://github.com/__GITHUB_OWNER__/__TOOL_SUITE_NAME__/tree/main/options).
 
 ### Universally required options
 
@@ -287,7 +287,7 @@ or `cd` into the directory prior to calling `./rudi`.
 
 ```bash
 ./rudi add --help
-./rudi add --suite __GIT_OWNER__/__TOOL_SUITE_NAME__
+./rudi add --suite __GITHUB_OWNER__/__TOOL_SUITE_NAME__
 ```
 
 Later you can add additional tool suites to this same RuDI installation 
@@ -311,10 +311,10 @@ in it as described above.
 
 You do not need to clone or install this repository, simply download the relevant 
 container image from:
-- <https://github.com/__GIT_OWNER__/__TOOL_SUITE_NAME__/pkgs/container/__LOWER_CASE_TOOL_SUITE_NAME__> 
+- <https://github.com/__GITHUB_OWNER__/__TOOL_SUITE_NAME__/pkgs/container/__LOWER_CASE_TOOL_SUITE_NAME__> 
 
 e.g., using command:
-- `singularity pull oras://ghcr.io/__GIT_OWNER__/__LOWER_CASE_TOOL_SUITE_NAME__:v0.0`
+- `singularity pull oras://ghcr.io/__GITHUB_OWNER__/__LOWER_CASE_TOOL_SUITE_NAME__:v0.0`
 
 ### Use the container with directory bind mounts and direct action calls
 

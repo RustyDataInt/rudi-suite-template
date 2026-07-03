@@ -37,8 +37,8 @@ _mdi/config/suites.yml_ as follows:
 ```yml
 # mdi/config/suites.yml
 suites:
-    - GIT_USER/NAME-mdi-tools # either format works
-    - https://github.com/GIT_USER/NAME-mdi-tools.git
+    - GITHUB_OWNER/SUITE_NAME # either format works
+    - https://github.com/GITHUB_OWNER/SUITE_NAME.git
 ```
 
 and repeating the MDI installation.
@@ -46,8 +46,8 @@ Alternatively, they can install new suites from within the Stage 2 web server,
 or run the following from the command line:
 
 ```bash
-mdi add -p -s GIT_USER/NAME-mdi-tools # either format works
-mdi add -p -s https://github.com/GIT_USER/NAME-mdi-tools.git
+mdi add -p -s GITHUB_OWNER/SUITE_NAME # either format works
+mdi add -p -s https://github.com/GITHUB_OWNER/SUITE_NAME.git
 ```
 
 In this way, users can maintain an extended MDI installation that carries
@@ -61,17 +61,16 @@ above to use your tools.
 If your repository is private, you will need to provide a 
 [GithHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 to clone and use your tool suite. Pass the token to MDI commands by creating file 
-_~/gitCredentials.R_ (or, alternatively, _mdi/gitCredentials.R_):
+_~/gitCredentials.toml_:
 
-```r
-# ~/gitCredentials.R
-gitCredentials <- list(
-    USER_NAME  = "FirstName LastName",
-    USER_EMAIL = "name@umich.edu",
-    GIT_USER   = "xxx",
-    GITHUB_PAT = "xxx"
-)
+```toml
+# ~/gitCredentials.toml
+USER_NAME   = "FirstName LastName"
+USER_EMAIL  = "name@umich.edu"
+GITHUB_USER = "github-name"
+GITHUB_PAT  = "ghp_..."
 ```
+
 <!-- 
 ### Add your public tools to the MDI suite registry
 
