@@ -20,9 +20,11 @@ include!(concat!(env!("OUT_DIR"), "/app_imports.rs"));
 mod server_config {
     use std::sync::OnceLock;
     use rudi_apps::server::*;
+    #[allow(dead_code)]
     static SERVER_CONFIG: OnceLock<ServerConfig> = OnceLock::new();
 
     /// Return a reference to the suite config, with all app configs.
+    #[allow(dead_code)]
     pub fn get_server_config() -> &'static ServerConfig {
         SERVER_CONFIG.get_or_init(|| {
             let server_config_toml_str = include_str!(concat!(env!("OUT_DIR"), "/server_config.toml"));
@@ -54,10 +56,18 @@ fn main() {
 }
 
 /// This `main()` function is the entry point for the client WASM.
-#[cfg(not(feature = "server"))]
+#[cfg(target_arch = "wasm32")]
 fn main() {
     let _ = console_log::init_with_level(log::Level::Info); // initialize console logging
     dioxus::launch(RudiServerBoundaries);
+}
+
+/// This `main()` function is never used, it just keeps rust-analyzer happy,
+/// as it expects a `main()` function in every crate and the IDE will not 
+/// match to the `#[cfg]`-gated `main()` functions above.
+#[cfg(all(not(feature = "server"),not(target_arch = "wasm32")))]
+fn main(){
+
 }
 
 /// `RudiServerBoundaries` provides a top-level `ErrorBoundary` and 
@@ -77,7 +87,7 @@ fn RudiServerBoundaries() -> Element {
                         p { "Loading RuDI interface..." }
                     }
                 },
-                RudiServer { }
+                RudiServer {}
             }
         }
     }
@@ -94,7 +104,7 @@ fn RudiServer() -> Element {
     use_context_provider(|| server_state);
 
     rsx! {
-        document::Link { rel: "icon",       href: RUDI_LOGO_ICO }
+        document::Link { rel: "icon", href: RUDI_LOGO_ICO }
         document::Link { rel: "stylesheet", href: DX_COMPONENTS_THEME }
         document::Link { rel: "stylesheet", href: RUDI_FRAMEWORK_CSS }
         document::Link { rel: "stylesheet", href: asset!("/assets/suite_stylesheet.css") }
@@ -112,19 +122,13 @@ fn RudiLayout() -> Element {
     rsx! {
         div { class: "rudi-header-layout",
             div { class: "rudi-sidebar-layout rudi-banner",
-                div { id: "rudi-suite-name-wrapper",
-                    SuiteLabel {}
-                }
-                div { id: "rudi-header-content-wrapper",
-                    ServerHeaderContent {}
-                }
+                div { id: "rudi-suite-name-wrapper", SuiteLabel {} }
+                div { id: "rudi-header-content-wrapper", ServerHeaderContent {} }
             }
             div { class: "rudi-sidebar-layout",
-                div { id: "app-steps-navbar-wrapper", class: "rudi-banner",
-                    AppStepChooser {}
-                }
+                div { id: "app-steps-navbar-wrapper", class: "rudi-banner", AppStepChooser {} }
                 div { id: "app-steps-content",
-                    { include!(concat!(env!("OUT_DIR"), "/app_matcher.rs")) }
+                    {include!(concat!(env!("OUT_DIR"), "/app_matcher.rs"))}
                 }
             }
         }
