@@ -22,6 +22,7 @@ rudi_apps = { path = "../../../../../../../frameworks/definitive/rudi-apps-frame
 # rudi_apps = { git = "https://github.com/RustyDataInt/rudi-apps-framework" }
 
 log = "0.4"
+dioxus-primitives = { git = "https://github.com/DioxusLabs/components", version = "0.0.1", default-features = false }
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 env_logger = "0.11"
 [target.'cfg(target_arch = "wasm32")'.dependencies]

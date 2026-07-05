@@ -6,9 +6,13 @@
 //! Typically, you should create one module per app step.
 
 // app-step modules
-mod demo_plot;
-mod demo_table;
+mod inputs;
+mod layout;
+mod plot;
+mod table;
 
 // re-export the app step components defined in the app-step modules
-pub use demo_plot::DemoPlot;
-pub use demo_table::DemoTable;
+pub use inputs::UserInputs;
+pub use layout::PageLayout;
+pub use plot::DemoPlot;
+pub use table::DemoTable;

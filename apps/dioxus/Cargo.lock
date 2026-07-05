@@ -5011,6 +5011,7 @@ dependencies = [
  "console_log",
  "demo_app",
  "dioxus",
+ "dioxus-primitives",
  "env_logger",
  "log",
  "rudi_apps",

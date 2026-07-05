@@ -7,21 +7,32 @@ label = "Demo App" # for display in the UI
 description = "A simple demonstration of how to build a RuDI app."
 
 # Data package types, as defined by pipelines, that the app can take as input.
+# Add additional supported data package types as needed.
 [package_types]
 demo_data = [ "demo_csv" ] # array elements list required content file types
-# Continue adding additional supported data package types as needed.
 
 # App steps listed on the left sidebar tab navigator, in this order.
+# Add additional app steps as needed.
 [[app_steps]]
-name = "data_table"     # no spaces
-label = "Data Table"    # for display in the UI side navbar
-component = "DemoTable" # the Dioxus component function, re-exported in the app's lib.rs
+name = "inputs"          # no spaces
+label = "User Inputs"    # for display in the UI side navbar
+component = "UserInputs" # the Dioxus component function, re-exported in the app's lib.rs
+description = "Demonstration of a range of RuDI stateful UI components."
+
+[[app_steps]]
+name = "layout"
+label = "Page Layout"
+component = "PageLayout"
+description = "Description of the page layout used in app steps."
+
+[[app_steps]]
+name = "table"
+label = "Data Table"
+component = "DemoTable"
 description = "Demonstration of an interactive data table."
 
 [[app_steps]]
-name = "data_plot"
+name = "plot"
 label = "Data Plot"
 component = "DemoPlot"
 description = "Demonstration of an interactive data plot."
-
-# Continue adding additional app steps as needed.

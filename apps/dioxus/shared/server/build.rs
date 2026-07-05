@@ -2,7 +2,7 @@
 //! app configuration files into all required server code,
 //! including imports, structures, and enums.
 
-// RuDI developer note: this script:
+// RuDI developer note: script:
 //     `rudi-suite-template/apps/dioxus/shared/server/build.rs`
 // rarely changes even if updates are made to the shared builder:
 //     `rudi-apps-framework/rudi_apps/src/server/mod.rs::build()`

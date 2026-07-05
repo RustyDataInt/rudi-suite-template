@@ -11,7 +11,7 @@
 
 // imports
 use dioxus::prelude::*;
-use rudi_apps::server::*;
+use rudi_apps::prelude::*;
 
 // additional imports of app crates, which must re-export all app step components
 include!(concat!(env!("OUT_DIR"), "/app_imports.rs"));
@@ -66,9 +66,7 @@ fn main() {
 /// as it expects a `main()` function in every crate and the IDE will not 
 /// match to the `#[cfg]`-gated `main()` functions above.
 #[cfg(all(not(feature = "server"),not(target_arch = "wasm32")))]
-fn main(){
-
-}
+fn main(){}
 
 /// `RudiServerBoundaries` provides a top-level `ErrorBoundary` and 
 /// `SuspenseBoundary` for the apps interface.
@@ -100,8 +98,9 @@ fn RudiServer() -> Element {
     // make the server config and state available as global context
     let server_config = server_config::get_server_config();
     use_context_provider(|| server_config.clone());
-    let server_state = ServerState::new(&server_config.suite_config.name);
-    use_context_provider(|| server_state);
+    use_context_provider(|| Signal::new(
+        ServerState::new(&server_config.suite_config.name)
+    ));
 
     rsx! {
         document::Link { rel: "icon", href: RUDI_LOGO_ICO }
@@ -117,8 +116,8 @@ fn RudiServer() -> Element {
 /// `RudiLayout` creates the grid layout for the header and app step sidebar.
 #[component]
 fn RudiLayout() -> Element {
-    let server_state = use_context::<ServerState>();
-    let app_step_name = use_memo(move || server_state.get_step());
+    let server_state = use_context::<Signal<ServerState>>();
+    let app_step_name = use_memo(move || server_state.read().get_step());
     rsx! {
         div { class: "rudi-header-layout",
             div { class: "rudi-sidebar-layout rudi-banner",
