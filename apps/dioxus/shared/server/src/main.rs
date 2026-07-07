@@ -62,9 +62,9 @@ fn main() {
     dioxus::launch(RudiServerBoundaries);
 }
 
-/// This `main()` function is never used, it just keeps rust-analyzer happy,
-/// as it expects a `main()` function in every crate and the IDE will not 
-/// match to the `#[cfg]`-gated `main()` functions above.
+/// This `main()` function is never used, it keeps rust-analyzer happy,
+/// which expects a `main()` function in every crate and the IDE will  
+/// not match to the `#[cfg]`-gated `main()` functions above.
 #[cfg(all(not(feature = "server"),not(target_arch = "wasm32")))]
 fn main(){}
 

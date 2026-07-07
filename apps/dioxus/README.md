@@ -94,9 +94,93 @@ description = "Short text description of your tool suite."
 
 ## Building a new app
 
-Create a folder for your app in the app folder.
+Create a folder for your app in the app folder by copying
+or renaming the demo app, which has properly sturctured files
+to get you going fast.
 
-###
+Each of the files below are indicated in short summary form here;
+please see comments within the files for more detailed instructions.
+
+### App Cargo.toml file with app description and additional dependencies
+
+Edit your app's `Cargo.toml` file as for any crate.
+
+```toml
+# your_tool_suite/apps/dioxus/<app>/Cargo.toml
+[package]
+name = "your_app_name"
+version = "0.1.0"
+authors = ["Your Name"]
+
+[dependencies]
+# uncomment or add dependencies of your app
+```
+
+### App configuration TOML file with metadata, data types, and app steps
+
+Edit your RuDI-specific `app_config.toml` to describe the app,
+the kinds of data it's data package loader accepts, and the
+different left-sidebar app steps in offers.
+
+```toml
+# your_tool_suite/apps/dioxus/<app>/app_config.toml
+order = 1 
+name = "app_name"
+label = "App Label"
+description = "A simple demonstration of your app."
+
+[package_types]
+data_type_name = [ "content_file_type" ]
+
+[[app_steps]]
+name = "step_name"
+label = "Step Label"
+component = "AppStep"
+description = "A simple demonstration of your app step."
+```
+
+### App overview markdown
+
+File `app_overview.md` is displayed when users click
+on the name of your app in the UI.
+
+```markdown
+<!-- your_tool_suite/apps/dioxus/<app>/app_overview.md -->
+Describe your app as needed.
+```
+
+### App library crate files, with one module per app step
+
+Your app is a library crate and thus has one `lib.rs` file.
+While not strictly necessary, it is highly recommended to
+use one sub-module per app step as show here. Thus, you will
+have one module rs file for each app step, or perhaps one 
+module folder for you more complex steps.
+
+```rust
+// your_tool_suite/apps/dioxus/<app>/src/lib.rs
+
+// app-step modules
+mod app_step1;
+
+// re-export the app step components defined in the app-step modules
+pub use app_step1::AppStep1;
+```
+
+
+
+
+
+### App stylesheets (and, less commonly, javascript)
+
+File `assets/app_stylesheet.css` provides a place to
+collect additional class and id styles for your app.
+Often, you don't need to do much here, as the framework
+does most of this for you.
+
+Even less frequently, you may want to add javascript code  
+to `assets/app_stylesheet.css`, noting that most client code
+is built into your Rust WASM binary.
 
 
 

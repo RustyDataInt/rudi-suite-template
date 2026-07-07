@@ -1063,16 +1063,9 @@ dependencies = [
 name = "demo_app"
 version = "0.1.0"
 dependencies = [
- "base64",
  "dioxus",
- "dioxus-icons",
- "dioxus-primitives",
- "image",
  "log",
  "rudi_apps",
- "serde",
- "serde_json",
- "server_fn",
  "tokio",
  "wasm-bindgen",
  "wasm-bindgen-futures",
@@ -1152,7 +1145,6 @@ dependencies = [
  "dioxus-html",
  "dioxus-liveview",
  "dioxus-logger",
- "dioxus-router",
  "dioxus-server",
  "dioxus-signals",
  "dioxus-ssr",
@@ -5011,7 +5003,6 @@ dependencies = [
  "console_log",
  "demo_app",
  "dioxus",
- "dioxus-primitives",
  "env_logger",
  "log",
  "rudi_apps",
