@@ -3,7 +3,8 @@
 //! This `lib.rs` file defines the app's Dioxus app step components,
 //! which must be re-exported here to be found by the app framework.
 //! 
-//! Typically, you should create one module per app step.
+//! Typically, you should create one module per app step in its
+//! own file or folder.
 
 // app-step modules
 mod inputs;

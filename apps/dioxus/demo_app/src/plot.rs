@@ -2,7 +2,7 @@
 
 // imports
 use dioxus::prelude::*;
-use rudi_apps::prelude::*;
+// use rudi_apps::prelude::*;
 
 /// The `DemoPlot` app-step component.
 #[component]

@@ -11,12 +11,29 @@ See the
 for instructions on how to use basic markdown formatting
 such as **emphasis**.
 
+## User inputs
+
+In order to make your app do anything interactive, you will invariably 
+want to add inputs for your users to make choices. The first step/tab 
+in the demo app shows a library of inputs in a simple action that echoes 
+the input value to screen.
+
+## Page layout
+
+RuDI apps use a fluid grid-like component layout that is derived  
+from 
+<a target="exteral" href="https://getbootstrap.com/">Boostrap</a>
+and 
+<a target="exteral" href="https://shiny.posit.co/">R Shiny</a>
+and time-tested to work simply and well. The second step/tab in the 
+demo app walks through the basics of this layout scheme.
+
 ## Plots and tables
 
-At the heart of most data visualization app are interactive
-plots and tables. 
-This app demonstrates the core plot and table components at
-the heart of most data visualization apps.
+The thid and fourth steps/tabs of the demo app demonstrate the core 
+RuDI plot and table components at the heart of data visualization apps.
+
+
 
 `RudiPlot` and `RudiTable` take `Vec<T>`, i.e., a vector
 of instances of a struct of type T as input.
