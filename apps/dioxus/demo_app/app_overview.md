@@ -44,10 +44,10 @@ of instances of a struct of type T as input.
 ### Plots
 
 Regardless of the data inputs, the plot components put 
-a dynamic plot image into a RudiCard.
+a dynamic plot image into a DataPanel.
 
 ### Tables
 
 The table components similar create a dynamic data table
-in a RudiCard, which support row filtering, ordering,
+in a DataPanel, which support row filtering, ordering,
 and selection.

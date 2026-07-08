@@ -14,25 +14,32 @@ demo_data = [ "demo_csv" ] # array elements list required content file types
 # App steps listed on the left sidebar tab navigator, in this order.
 # Add additional app steps as needed.
 [[app_steps]]
-name = "inputs"          # no spaces
-label = "User Inputs"    # for display in the UI side navbar
-component = "UserInputs" # the Dioxus component function, re-exported in the app's lib.rs
-description = "Demonstration of a range of RuDI stateful UI components."
+name = "user_inputs"               # required: no spaces
+label = "User Inputs"         # required: for display in the UI side navbar
+component = "UserInputs"      # required: the Dioxus component function, re-exported in the app's lib.rs
+title = "User input examples" # required: shown at the top of the app step page
+tooltip = "Demonstration of various stateful user inputs" # optional: defaults to title if not provided
+# in addition, each app step can provide:
+#      instructions as <app_name>/src/<app_step_name>/instructions.md
+#      settings     as <app_name>/src/<app_step_name>/settings.yml
 
 [[app_steps]]
-name = "layout"
+name = "page_layout"
 label = "Page Layout"
 component = "PageLayout"
-description = "Description of the page layout used in app steps."
+title = "Bootstrap-style page layout"
+tooltip = "Description of the 12-column page layout used in app steps"
 
 [[app_steps]]
-name = "table"
-label = "Data Table"
-component = "DemoTable"
-description = "Demonstration of an interactive data table."
+name = "data_tables"
+label = "Data Tables"
+component = "DataTables"
+title = "Interactive data tables"
+tooltip = "Demonstration of interactive data table panels"
 
 [[app_steps]]
-name = "plot"
-label = "Data Plot"
-component = "DemoPlot"
-description = "Demonstration of an interactive data plot."
+name = "data_plots"
+label = "Data Plots"
+component = "DataPlots"
+title = "Interactive data plots"
+tooltip = "Demonstration of interactive data plot panels"

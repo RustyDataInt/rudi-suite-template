@@ -16,13 +16,13 @@ pub fn PageLayout() -> Element {
     rsx! {
         AppStepPage { app_step: this,
             FluidRow {
-                RudiCard { name: "panel_a", title: "Panel A", n_columns: 6,
+                DataPanel { name: "panel_a", title: "Panel A", n_columns: 6,
                     div {
                         "Row 1, Span 1 - "
                         "n_columns: 6 (out of 12)"
                     }
                 }
-                RudiCard { name: "panel_b", title: "Panel B", n_columns: 6,
+                DataPanel { name: "panel_b", title: "Panel B", n_columns: 6,
                     div {
                         "Row 1, Span 2 - "
                         "n_columns: 6 (out of 12)"
@@ -33,19 +33,19 @@ pub fn PageLayout() -> Element {
                 }
             }
             FluidRow {
-                RudiCard { name: "panel_c", title: "Panel C", n_columns: 4,
+                DataPanel { name: "panel_c", title: "Panel C", n_columns: 4,
                     div {
                         "Row 2, Span 1 - "
                         "n_columns: 4 (out of 12)"
                     }
                 }
-                RudiCard { name: "panel_d", title: "Panel D", n_columns: 4,
+                DataPanel { name: "panel_d", title: "Panel D", n_columns: 4,
                     div {
                         "Row 2, Span 2 - "
                         "n_columns: 4 (out of 12)"
                     }
                 }
-                RudiCard { name: "panel_e", title: "Panel E", n_columns: 4,
+                DataPanel { name: "panel_e", title: "Panel E", n_columns: 4,
                     div {
                         "Row 2, Span 3 - "
                         "n_columns: 4 (out of 12)"

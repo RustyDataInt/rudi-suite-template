@@ -7,13 +7,13 @@
 //! own file or folder.
 
 // app-step modules
-mod inputs;
-mod layout;
-mod plot;
-mod table;
+mod user_inputs;
+mod page_layout;
+mod data_tables;
+mod data_plots;
 
 // re-export the app step components defined in the app-step modules
-pub use inputs::UserInputs;
-pub use layout::PageLayout;
-pub use plot::DemoPlot;
-pub use table::DemoTable;
+pub use user_inputs::UserInputs;
+pub use page_layout::PageLayout;
+pub use data_tables::DataTables;
+pub use data_plots::DataPlots;

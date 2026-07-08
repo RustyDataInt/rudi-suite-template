@@ -1,16 +1,16 @@
-//! A simple example of a RuDI interactive plot.
+//! A simple example of a RuDI interactive table.
 
 // imports
 use dioxus::prelude::*;
 // use rudi_apps::prelude::*;
 
-/// The `DemoPlot` app-step component.
+/// The `DataTables` app-step component.
 #[component]
-pub fn DemoPlot() -> Element {
+pub fn DataTables() -> Element {
     rsx! {
         div { "pending" }
     }
-    // let this = RudiElement::new::<()>("demo_plot");
+    // let this = RudiElement::new::<()>("demo_table");
     // use_context_provider(|| Namespace::from(&this));
     // rsx! {
     //     div { id: this.id,

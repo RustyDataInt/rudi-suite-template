@@ -101,11 +101,13 @@ fn RudiServer() -> Element {
     use_context_provider(|| Signal::new(
         ServerState::new(&server_config.suite_config.name)
     ));
+    use_context_provider(|| Signal::new(UiState::new()));
 
     rsx! {
         document::Link { rel: "icon", href: RUDI_LOGO_ICO }
         document::Link { rel: "stylesheet", href: DX_COMPONENTS_THEME }
-        document::Link { rel: "stylesheet", href: RUDI_FRAMEWORK_CSS }
+        document::Link { rel: "stylesheet", href: RUDI_THEME_CSS }
+        document::Link { rel: "stylesheet", href: RUDI_LAYOUT_CSS }
         document::Link { rel: "stylesheet", href: asset!("/assets/suite_stylesheet.css") }
         document::Script { src: RUDI_FRAMEWORK_JS }
         document::Script { src: asset!("/assets/suite_javascript.js") }
@@ -117,19 +119,71 @@ fn RudiServer() -> Element {
 #[component]
 fn RudiLayout() -> Element {
     let server_state = use_context::<Signal<ServerState>>();
+    let ui_state = use_context::<Signal<UiState>>();
     let app_step_name = use_memo(move || server_state.read().get_step());
+    const APP_STEPS_CLASS: &str    = "app-steps-sidebar";
+    const INSTRUCTIONS_CLASS: &str = "instructions-sidebar";
+    const HIDDEN_CLASS: &str       = "hidden-sidebar";
+    let sidebar_class = use_memo(move || {
+        if ui_state.read().sidebar_open {
+            if ui_state.read().showing_app_steps {
+                APP_STEPS_CLASS.to_string()
+            } else {
+                INSTRUCTIONS_CLASS.to_string()
+            }
+        } else {
+            HIDDEN_CLASS.to_string()
+        }
+    });
     rsx! {
-        div { class: "rudi-header-layout",
-            div { class: "rudi-sidebar-layout rudi-banner",
-                div { id: "rudi-suite-name-wrapper", SuiteLabel {} }
-                div { id: "rudi-header-content-wrapper", ServerHeaderContent {} }
+        div { id: "main-grid-container", class: sidebar_class,
+            div { id: "suite-label-wrapper", SuiteLabel {} }
+            div { id: "header-content-wrapper", ServerHeaderContent {} }
+            if ui_state.read().showing_app_steps {
+                div { id: "app-steps-navbar-wrapper", AppStepChooser {} }
+            } else {
+                div { id: "instructions-wrapper", AppStepInstructions {} }
             }
-            div { class: "rudi-sidebar-layout",
-                div { id: "app-steps-navbar-wrapper", class: "rudi-banner", AppStepChooser {} }
-                div { id: "app-steps-content",
-                    {include!(concat!(env!("OUT_DIR"), "/app_matcher.rs"))}
-                }
-            }
+            div { id: "main-content-wrapper", {include!(concat!(env!("OUT_DIR"), "/app_matcher.rs"))} }
         }
     }
+// <div class="grid-container">
+//   <div class="box top-left">Top Left (150px)</div>
+//   <div class="box top-right">Top Right</div>
+//   <div class="box bottom-left">Bottom Left (150px)</div>
+//   <div class="box bottom-right">
+//     <div class="scroll-content">
+//       <p>Bottom Right (Scrollable)</p>
+//       <p>More content...</p>
+//       <p>More content...</p>
+//       <p>More content...</p>
+//     </div>
+//   </div>
+// </div>
+
+// /* 2. Make the bottom-right cell scrollable */
+// .bottom-right {
+//   /* This forces the cell to respect the grid row height instead of stretching it */
+//   min-height: 0; 
+//   overflow-y: auto; 
+// }
+
+    // rsx! {
+    //         div { class: format!("rudi-sidebar-layout rudi-banner {}", sidebar_class),
+    //             div { id: "suite-label-wrapper", SuiteLabel {} }
+    //             div { id: "header-content-wrapper", ServerHeaderContent {} }
+    //         }
+    //         div { class: format!("rudi-sidebar-layout {}", sidebar_class),
+    //             div { id: "app-steps-navbar-wrapper", class: "rudi-banner",
+    //                 if ui_state.read().showing_app_steps {
+    //                     AppStepChooser {}
+    //                 } else {
+    //                     AppStepInstructions {}
+    //                 }
+    //             }
+    //             div { id: "main-content-wrapper",
+    //                 {include!(concat!(env!("OUT_DIR"), "/app_matcher.rs"))}
+    //             }
+    //         }
+    // }
 }
