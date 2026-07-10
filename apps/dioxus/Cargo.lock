@@ -5007,6 +5007,7 @@ dependencies = [
  "toml 1.1.2+spec-1.1.0",
  "wasm-bindgen",
  "wasm-bindgen-futures",
+ "web-sys",
 ]
 
 [[package]]

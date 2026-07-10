@@ -140,7 +140,10 @@ fn RudiLayout() -> Element {
             div { id: "suite-label-wrapper", SuiteLabel {} }
             div { id: "header-content-wrapper", ServerHeaderContent {} }
             if ui_state.read().showing_app_steps {
-                div { id: "app-steps-navbar-wrapper", AppStepChooser {} }
+                div { id: "app-steps-navbar-wrapper",
+                    AppStepChooser {}
+                    BookmarkSaver {}
+                }
             } else {
                 div { id: "instructions-wrapper", AppStepInstructions {} }
             }

@@ -25,6 +25,21 @@ pub fn UserInputs() -> Element {
     rsx! {
         AppStepPage { app_step: this, max_width: Some("800px".to_string()),
             FluidRow {
+                p {
+                    "Things to do on this page:"
+                    ul { margin_top: "5px",
+                        li { "Update the input values and watch your changes echo to the screen." }
+                        li {
+                            "Click 'Save Your Work! - to your computer' to the left to save a bookmark of your selections."
+                        }
+                        li {
+                            "After reloading the browser, load your bookmark to re-launch the app into the same saved state."
+                        }
+                        li { "Click the help icon above for more information." }
+                    }
+                }
+            }
+            FluidRow {
                 FluidSpan { n_columns: 6,
                     EchoChamber::<i32> { value: integer,
 

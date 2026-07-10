@@ -1,53 +1,49 @@
 
 # RuDI Demo app
 
-Replace the contents of this file with a brief descriptive overview 
-of your app, in one to perhaps several short paragraphs.
+DEVELOPERS: Replace the contents of this file with a brief description 
+of your app, in one to several short paragraphs.
 
 See the
 <a target="exteral" href="https://www.markdownguide.org/basic-syntax/" >
     markdown syntax guide
 </a>
-for instructions on how to use basic markdown formatting
-such as **emphasis**.
+for instructions on basic markdown formatting.
 
 ## User inputs
 
-In order to make your app do anything interactive, you will invariably 
-want to add inputs for your users to make choices. The first step/tab 
-in the demo app shows a library of inputs in a simple action that echoes 
-the input value to screen.
+In order to make your app interactive, you will usually want to add inputs 
+for your users to make choices. The first step/tab in the demo app shows 
+a library of inputs with a simple echo of input values to the screen.
 
 ## Page layout
 
-RuDI apps use a fluid grid-like component layout that is derived  
-from 
+RuDI apps use a fluid grid-like layout derived from 
 <a target="exteral" href="https://getbootstrap.com/">Boostrap</a>
 and 
 <a target="exteral" href="https://shiny.posit.co/">R Shiny</a>
-and time-tested to work simply and well. The second step/tab in the 
+that is time-tested to work simply and well. The second step/tab in the 
 demo app walks through the basics of this layout scheme.
 
 ## Plots and tables
 
-The thid and fourth steps/tabs of the demo app demonstrate the core 
-RuDI plot and table components at the heart of data visualization apps.
+The third and fourth steps/tabs of the demo app demonstrate the RuDI 
+plot and table components at the heart of data visualization apps.
 
+### Data inputs
 
-
-`RudiPlot` and `RudiTable` take `Vec<T>`, i.e., a vector
-of instances of a struct of type T as input.
-
-`RudiDataFramePlot` and `RudiDataFrameTable` take and
+For flexibility, `RudiPlot` and `RudiTable` take `Vec<T>`, i.e., 
+a vector of instances of type `T` as input. In contrast, 
+`RudiDataFramePlot` and `RudiDataFrameTable` take an
 `rlike::DataFrame` as input.
 
 ### Plots
 
-Regardless of the data inputs, the plot components put 
-a dynamic plot image into a DataPanel.
+Regardless of the data input type, the table components
+create a dynamic data table in a `DataPanel`, which supports
+row filtering, ordering, and selection.
 
 ### Tables
 
-The table components similar create a dynamic data table
-in a DataPanel, which support row filtering, ordering,
-and selection.
+The plot components similarly render a dynamic plot image 
+into a `DataPanel`.
