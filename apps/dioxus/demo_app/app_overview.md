@@ -40,10 +40,10 @@ a vector of instances of type `T` as input. In contrast,
 ### Plots
 
 Regardless of the data input type, the table components
-create a dynamic data table in a `DataPanel`, which supports
+create a dynamic data table in a `DisplayPanel`, which supports
 row filtering, ordering, and selection.
 
 ### Tables
 
 The plot components similarly render a dynamic plot image 
-into a `DataPanel`.
+into a `DisplayPanel`.

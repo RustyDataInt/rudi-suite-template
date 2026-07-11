@@ -21,7 +21,6 @@ title = "User input examples" # required: shown at the top of the app step page
 tooltip = "Demonstration of various stateful user inputs" # optional: defaults to title if not provided
 # in addition, each app step can provide:
 #      instructions as <app_name>/src/<app_step_name>/instructions.md
-#      settings     as <app_name>/src/<app_step_name>/settings.yml
 
 [[app_steps]]
 name = "page_layout"

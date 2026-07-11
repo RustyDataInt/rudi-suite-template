@@ -19,7 +19,7 @@ User inputs in RuDI apps are an extension of the standard
 to make them stateful so that they can be saved in bookmarks (see below).
 
 Stateful behavior is achieved through a RuDI-specific structure called 
-a `RuDIElement`. For user inputs, you usually don't create your own 
+a `RudiElement`. For user inputs, you usually don't create your own 
 RudiElements, you instead call the RuDI-specific components built into 
 the apps framework, e.g., this code creates a stateful numeric input.
 

@@ -20,7 +20,7 @@ used to create a new tool suite, making it easy to
 The `FluidPage` layout consists of a series of `FluidRows`,
 each of which has **12 vertical columns**. A `FluidRow` contains
 a series of `FluidSpans` - which in RuDI apps are nearly always 
-`DataPanels` - with fixed, declared widths from 1 to 12 columns each.
+`DisplayPanels` - with fixed, declared widths from 1 to 12 columns each.
 
 Thus, you can have one span or column with a width of 12 that 
 fills an entire row, or put multiple panels in a row.

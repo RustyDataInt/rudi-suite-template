@@ -15,8 +15,7 @@ command line utility, e.g.,
 rudi <pipeline> ...
 ```
 
-A pipeline is distinct from many standalone programs in
-that a pipeline might have many inputs and outputs and typically makes 
-calls to many installed programs. Thus, rather than being a program itself, 
-a pipeline is a means of coordinating a reproducible set of calls to 
-other programs.
+A pipeline is distinct from standalone programs in that a pipeline might 
+have many inputs and outputs and often makes calls to many installed 
+programs. Thus, rather than being a program itself, a pipeline is a means 
+of coordinating a reproducible set of calls to other programs.

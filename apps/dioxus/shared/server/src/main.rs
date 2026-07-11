@@ -136,9 +136,9 @@ fn RudiLayout() -> Element {
         }
     });
     rsx! {
-        div { id: "main-grid-container", class: sidebar_class,
-            div { id: "suite-label-wrapper", SuiteLabel {} }
-            div { id: "header-content-wrapper", ServerHeaderContent {} }
+        div { id: "page-grid-container", class: sidebar_class,
+            div { id: "page-suite-label-wrapper", SuiteLabel {} }
+            div { id: "page-header-content-wrapper", ServerHeaderContent {} }
             if ui_state.read().showing_app_steps {
                 div { id: "app-steps-navbar-wrapper",
                     AppStepChooser {}
@@ -150,43 +150,4 @@ fn RudiLayout() -> Element {
             div { id: "main-content-wrapper", {include!(concat!(env!("OUT_DIR"), "/app_matcher.rs"))} }
         }
     }
-// <div class="grid-container">
-//   <div class="box top-left">Top Left (150px)</div>
-//   <div class="box top-right">Top Right</div>
-//   <div class="box bottom-left">Bottom Left (150px)</div>
-//   <div class="box bottom-right">
-//     <div class="scroll-content">
-//       <p>Bottom Right (Scrollable)</p>
-//       <p>More content...</p>
-//       <p>More content...</p>
-//       <p>More content...</p>
-//     </div>
-//   </div>
-// </div>
-
-// /* 2. Make the bottom-right cell scrollable */
-// .bottom-right {
-//   /* This forces the cell to respect the grid row height instead of stretching it */
-//   min-height: 0; 
-//   overflow-y: auto; 
-// }
-
-    // rsx! {
-    //         div { class: format!("rudi-sidebar-layout rudi-banner {}", sidebar_class),
-    //             div { id: "suite-label-wrapper", SuiteLabel {} }
-    //             div { id: "header-content-wrapper", ServerHeaderContent {} }
-    //         }
-    //         div { class: format!("rudi-sidebar-layout {}", sidebar_class),
-    //             div { id: "app-steps-navbar-wrapper", class: "rudi-banner",
-    //                 if ui_state.read().showing_app_steps {
-    //                     AppStepChooser {}
-    //                 } else {
-    //                     AppStepInstructions {}
-    //                 }
-    //             }
-    //             div { id: "main-content-wrapper",
-    //                 {include!(concat!(env!("OUT_DIR"), "/app_matcher.rs"))}
-    //             }
-    //         }
-    // }
 }
