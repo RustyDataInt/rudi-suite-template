@@ -21,6 +21,9 @@ tokio = { version = "1", features = ["full"], optional = true}
 wasm-bindgen = { version = "0.2", optional = true }
 wasm-bindgen-futures = { version = "0.4", optional = true }
 
+# data objects for tables and plots
+rlike = { git = "https://github.com/MiDataInt/rlike", branch = "main" }
+
 # image processing
 # base64 = "0.22"
 # image = { version = "0.25", default-features = false, features = ["png"] } 
