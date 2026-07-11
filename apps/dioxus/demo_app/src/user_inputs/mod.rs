@@ -10,6 +10,7 @@ const FRACTIONAL: &str = "fractional";
 const STRING:     &str = "string";
 const BOOLEAN:    &str = "boolean";
 const SELECT:     &str = "select";
+const RADIO_GROUP: &str = "radio_group";
 
 /// The `UserInputs` app-step component.
 #[component]
@@ -26,6 +27,7 @@ pub fn UserInputs() -> Element {
     let string = use_signal(|| this.get_initial_state(STRING, "some text".to_string()));
     let boolean = use_signal(|| this.get_initial_state(BOOLEAN, true));
     let select = use_signal(|| this.get_initial_state(SELECT, 2_u8));
+    let radio_group = use_signal(|| this.get_initial_state(RADIO_GROUP, "rad_one".to_string()));
 
     // Use the `AppStepPage` component to create a standardized app step page.
     rsx! {
@@ -90,6 +92,13 @@ pub fn UserInputs() -> Element {
                                 ],
                             ),
                         }
+                        RadioGroupInput {
+                            name: RADIO_GROUP.to_string(),
+                            value: radio_group,
+                            label: "Radio Group".to_string(),
+                            choices: vec!["rad_one".to_string(), "rad_two".to_string(), "rad_three".to_string()],
+                            labels: Some(vec!["rad 1".to_string(), "rad 2".to_string(), "rad 3".to_string()]),
+                        }
                     }
                 }
             }
@@ -119,6 +128,10 @@ pub fn UserInputs() -> Element {
                         tr {
                             td { "{SELECT}" }
                             td { "{select}" }
+                        }
+                        tr {
+                            td { padding_right: "20px", "{RADIO_GROUP}" }
+                            td { "{radio_group}" }
                         }
                     }
                 }
