@@ -10,7 +10,7 @@ use rlike::data_frame::prelude::*;
 pub fn DataTables() -> Element {
 
     // Create the named RuDI element for this app step.
-    let this = RudiElement::app_step::<()>("page_layout");
+    let this = RudiElement::app_step::<()>("data_tables");
 
     // Generate mock data.
     let x = vec![1, 2, 3, 4, 5];
@@ -22,12 +22,8 @@ pub fn DataTables() -> Element {
         col_y = y.to_rl(),
         col_z = z.to_rl(),
     });
-    let config = TableConfig {
-        columns: None,
-        sort_columns: None,
-        sort_ascending: None,
-        max_rows: 10,
-    };
+    
+    let config = use_signal(|| TableConfig::new(TableSelectMode::Multiple));
 
     // Use the `AppStepPage` component to create a standardized app step page.
     rsx! {
