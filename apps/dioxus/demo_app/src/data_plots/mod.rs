@@ -25,8 +25,9 @@ pub fn DataPlots() -> Element {
 
     let config = use_signal(|| {
         PlotConfig::<i32, i32>::builder()
-            .series_with_defaults("col_x", "col_y")
-            .series_with_defaults("col_x", "col_z")
+            .title("Demo Plot")
+            .series_with_defaults("col_x", "col_y", SeriesType::Both)
+            .series_with_defaults("col_x", "col_z", SeriesType::Both)
             .x_label("Column X")
             .y_label("Column Y or Z")
             .y_range(0, 6)
