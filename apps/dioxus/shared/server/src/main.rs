@@ -1,13 +1,13 @@
-//! The `main.rs` file in the `server` crate is the entry point 
-//! for the server application that runs your apps.
+//! The `main.rs` file in the `server` crate is the entry point for the server 
+//! application that runs your apps.
 //! 
 //! You do not usually edit this file.  All code it needs is either:
 //!   - built by `server::build.rs` via `rudi_apps::server::build()`
 //!   - called by the built code from `rudi_apps::server` and other modules
 //!   - a simple, unchanging wrapper that defines the main page layout
 //!
-//! However, there are advanced cases where you might want to customize 
-//! the server to add middleware (see DEVELOPER_NOTE below).
+//! However, there are advanced cases where you might want to customize the 
+//! server to add middleware (see DEVELOPER_NOTE below).
 
 // imports
 use dioxus::prelude::*;
@@ -27,7 +27,9 @@ mod server_config {
     #[allow(dead_code)]
     pub fn get_server_config() -> &'static ServerConfig {
         SERVER_CONFIG.get_or_init(|| {
-            let server_config_toml_str = include_str!(concat!(env!("OUT_DIR"), "/server_config.toml"));
+            let server_config_toml_str = include_str!(
+                concat!(env!("OUT_DIR"), "/server_config.toml")
+            );
             toml::from_str(server_config_toml_str)
                 .expect("Failed to parse generated ServerConfig TOML")
         })
@@ -57,14 +59,14 @@ fn main() {
 
 /// This `main()` function is the entry point for the client WASM.
 #[cfg(target_arch = "wasm32")]
-fn main() {
-    let _ = console_log::init_with_level(log::Level::Info); // initialize console logging
+fn main() { // initialize console logging
+    let _ = console_log::init_with_level(log::Level::Info);
     dioxus::launch(RudiServerBoundaries);
 }
 
-/// This `main()` function is never used, it keeps rust-analyzer happy,
-/// which expects a `main()` function in every crate and the IDE will  
-/// not match to the `#[cfg]`-gated `main()` functions above.
+/// This `main()` function is never used, it keeps rust-analyzer happy, which 
+/// expects a `main()` function in every crate and the IDE will not match to the 
+/// `#[cfg]`-gated `main()` functions above.
 #[cfg(all(not(feature = "server"),not(target_arch = "wasm32")))]
 fn main(){}
 
@@ -120,7 +122,9 @@ fn RudiServer() -> Element {
 fn RudiLayout() -> Element {
     let server_state = use_context::<Signal<ServerState>>();
     let ui_state = use_context::<Signal<UiState>>();
-    let app_step_name = use_memo(move || server_state.read().get_step());
+    let app_step_name = use_memo(
+        move || server_state.read().get_step()
+    );
     const APP_STEPS_CLASS: &str    = "app-steps-sidebar";
     const INSTRUCTIONS_CLASS: &str = "instructions-sidebar";
     const HIDDEN_CLASS: &str       = "hidden-sidebar";

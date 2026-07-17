@@ -3,7 +3,7 @@
 // imports
 use dioxus::prelude::*;
 use rudi_apps::prelude::*;
-use rlike::data_frame::prelude::*;
+use super::*;
 
 /// The `DataTables` app-step component.
 #[component]
@@ -12,18 +12,18 @@ pub fn DataTables() -> Element {
     // Create the named RuDI element for this app step.
     let this = RudiElement::app_step::<()>("data_tables");
 
-    // Generate mock data.
-    let x = vec![1, 2, 3, 4, 5];
-    let mut y = x.clone();
-    y.reverse();
-    let z = x.iter().map(|v| v * 2).collect::<Vec<i32>>();
-    let df = use_signal(|| df_new!{
-        col_x = x.to_rl(),
-        col_y = y.to_rl(),
-        col_z = z.to_rl(),
+    // Load the demo data as `Resource<DataFrame>`.
+    let data_frame = use_resource(move || async move {
+        ServerData::load_global("iris", load_iris).expect("Failed to load iris data")
     });
     
-    let config = use_signal(|| TableConfig::new(TableSelectMode::Multiple));
+    // Configure the table display.
+    let config = use_signal(|| {
+        TableConfig::new(TableSelectMode::Single)
+            // .selectable(TableSelectMode::Single)
+            // .searchable()
+            // .paginate(20)
+    });
 
     // Use the `AppStepPage` component to create a standardized app step page.
     rsx! {
@@ -33,7 +33,7 @@ pub fn DataTables() -> Element {
                     name: "table_panel".to_string(),
                     title: "Table Panel".to_string(),
                     n_columns: 4,
-                    data_frame: Some(df),
+                    data_frame: Some(data_frame),
                     config,
                 }
             }

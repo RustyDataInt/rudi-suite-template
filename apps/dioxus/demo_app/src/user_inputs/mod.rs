@@ -5,7 +5,6 @@ use dioxus::prelude::*;
 use rudi_apps::prelude::*;
 
 // declare input names
-const INTEGER:    &str = "integer";
 const FRACTIONAL: &str = "fractional";
 const STRING:     &str = "string";
 const BOOLEAN:    &str = "boolean";
@@ -22,7 +21,9 @@ pub fn UserInputs() -> Element {
     // Define value signals for all child inputs. Inherit starting signal values 
     // from the initial server state in case the user launched the app from a 
     // bookmark, otherwise the default values are used.
-    let integer = use_signal(|| this.get_initial_state(INTEGER, 10_i32));
+
+    let (i32_name, i32_signal) = use_numeric_input(&this, "i32", 10_i32);
+
     let fractional = use_signal(|| this.get_initial_state(FRACTIONAL, 2.5_f64));
     let string = use_signal(|| this.get_initial_state(STRING, "some text".to_string()));
     let boolean = use_signal(|| this.get_initial_state(BOOLEAN, true));
@@ -57,8 +58,8 @@ pub fn UserInputs() -> Element {
                             label: "Any f64".to_string(),
                         }
                         NumericInput::<i32> {
-                            name: INTEGER.to_string(), // yields CSS id 'app-user_inputs-integer'
-                            value: integer,
+                            name: i32_name.clone(), // yields CSS id 'app-user_inputs-i32'
+                            value: i32_signal,
                             label: "i32, 2 to 20, step 2".to_string(),
                             min: Some(2),
                             max: Some(20),
@@ -114,8 +115,8 @@ pub fn UserInputs() -> Element {
                             td { "{fractional}" }
                         }
                         tr {
-                            td { "{INTEGER}" }
-                            td { "{integer}" }
+                            td { "{i32_name}" }
+                            td { "{i32_signal}" }
                         }
                         tr {
                             td { "{BOOLEAN}" }

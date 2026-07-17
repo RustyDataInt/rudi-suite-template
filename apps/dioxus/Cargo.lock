@@ -1165,6 +1165,7 @@ name = "demo_app"
 version = "0.1.0"
 dependencies = [
  "dioxus",
+ "flate2",
  "log",
  "rlike",
  "rudi_apps",
